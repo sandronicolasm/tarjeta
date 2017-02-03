@@ -1,0 +1,66 @@
+{% extends ':index:index.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('libs/bootstrap/colorbox.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block container %}
+
+    <div class="container">
+        <div class="container-fluid">
+            <!-- Page Heading/Breadcrumbs -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('complejosIndex')}}">Complejos</a></li>
+                        <li class="active">Descripción</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- Intro Content -->
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-responsive" src="{{ descri.url_comp }}" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h2>{{ descri.name_comp }}</h2>
+                    <p>{{ descri.descrip_comp }}</p>
+                    <p>Dirección: {{ descri.dire_comp }}</p>
+                    <p>Teléfono: {{ descri.phon_comp }} - Email: {{ descri.mail_comp }}</p>
+                    <p>Servicio Disponible: </p>
+                    <p>{{ descri.name_serv }}</p>
+                    <p>{{ descri.prec_serv }}</p>
+                    <ul class="list-inline" >
+                        <li><a href="http://face.link_rede" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a>
+                        </li>
+                        <li><a href="http://insta.link_rede" target="_blank"><i class="fa fa-2x fa-instagram"></i></a>
+                        </li>
+                        <li><a href="http://twit.link_rede" target="_blank"><i class="fa fa-2x fa-twitter-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pull-right">
+                <p><a class='iframe btn btn-primary' href='{{asset('calendario/calendario/calendario.html')}}'>Hacer Reserva</a></p>
+                <p><a class='btn btn-primary' href='{{ path('send_email') }}'>Solicitar Confirmación</a></p>
+            </div>
+
+
+        </div>
+        <!-- /.row -->
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/jquery.colorbox.js') }}"></script>
+{% endblock %}

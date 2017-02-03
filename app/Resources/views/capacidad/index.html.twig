@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Capacidads list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idcapa</th>
+                <th>Capa</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for capacidad in capacidads %}
+            <tr>
+                <td><a href="{{ path('super_capacidad_show', { 'id': capacidad.idCapa }) }}">{{ capacidad.idCapa }}</a></td>
+                <td>{{ capacidad.capa }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('super_capacidad_show', { 'id': capacidad.idCapa }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('super_capacidad_edit', { 'id': capacidad.idCapa }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('super_capacidad_new') }}">Create a new capacidad</a>
+        </li>
+    </ul>
+{% endblock %}

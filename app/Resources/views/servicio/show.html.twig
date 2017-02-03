@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Servicio</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idserv</th>
+                <td>{{ servicio.idServ }}</td>
+            </tr>
+            <tr>
+                <th>Nameserv</th>
+                <td>{{ servicio.nameServ }}</td>
+            </tr>
+            <tr>
+                <th>Precserv</th>
+                <td>{{ servicio.precServ }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-info pull-right" href="{{ path('super_servicio_index') }}">Back to the list</a>
+    <a class="btn btn-warning pull-right" href="{{ path('super_servicio_edit', { 'id': servicio.idServ }) }}">Edit</a>
+    {{ form_start(delete_form) }}
+    <input class="btn btn-warning pull-right" type="submit" value="Delete">
+    {{ form_end(delete_form) }}
+{% endblock %}

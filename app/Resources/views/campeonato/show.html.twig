@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Campeonatos
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Lista Campeonatos</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>Campeonato {{ campeonato.nameCamp }}</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr class="hidden">
+                            <th>Idcamp</th>
+                            <td>{{ campeonato.idCamp }}</td>
+                        </tr>
+                        <tr>
+                            <th>Namecamp</th>
+                            <td>{{ campeonato.nameCamp }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fechinic</th>
+                            <td>{% if campeonato.fechInic %}{{ campeonato.fechInic|date('Y-m-d') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Fechfina</th>
+                            <td>{% if campeonato.fechFina %}{{ campeonato.fechFina|date('Y-m-d') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Precinsc</th>
+                            <td>{{ campeonato.precInsc }}</td>
+                        </tr>
+                        <tr>
+                            <th>Desccamp</th>
+                            <td>{{ campeonato.descCamp }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="{{ path('campeonato_edit', { 'id': campeonato.idCamp }) }}" class="btn btn-primary col-sm-2">Editar</a>
+                    {{ form_start(delete_form) }}
+                        <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
+                    {{ form_end(delete_form) }}
+                    <a href="{{ path('campeonato_index') }}" class="btn btn-default col-sm-2">Atras</a>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

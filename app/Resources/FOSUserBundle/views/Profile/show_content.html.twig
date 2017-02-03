@@ -1,0 +1,64 @@
+{% extends '@FOSUser/layout.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('libs/bootstrap/login.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block fos_user_content %}
+    <div class="container">
+        <div class="wrapper">
+            <a class="btn btn-lg btn-default " href="{{ path('homepage') }}"><i class="fa fa-reply"></i></a>
+            <div class="form-horizontal">
+                <h3 class="form-signin-heading">Profile  {{ user.username }} <i class="fa fa-user-circle fa-2x"></i></h3>
+                <hr class="colorgraph"><br>
+                <section class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">{{ 'profile.show.username'|trans }}:</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">{{ user.username }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">{{ 'profile.show.email'|trans }}:</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">{{ user.email }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Nombre: </label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">{{ user.nameUser }}</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Documento: </label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">{{ user.dniUser }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Direccion: </label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">{{ user.direUser }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Teléfono: </label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">{{ user.phonUser }}</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="pull-right">
+                    <a class="btn btn-lg btn-success" href="{{ path('fos_user_profile_edit') }}">Editar</a>
+                    <a class="btn btn-lg btn-primary" href="{{ path('fos_user_change_password') }}">Cambiar contraseña</a>
+                </section>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+    {% form_theme edit_form'@App/Form/fields.html.twig' %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Complejos
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Escritorio</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>Editar Complejo {{ complejo.nameComp }}</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(edit_form) }}
+                    <div class="form-group">
+                        {{ form_label(edit_form.nameComp, 'Nombre', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.nameComp) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.direComp, 'Dirección', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.direComp) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.phonComp, 'Teléfono', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.phonComp) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.mailComp, 'Email', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.mailComp) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.descripComp, 'Descripción', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.descripComp) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.urlComp, 'URL', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.urlComp) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.idRede, 'Redes Sociales', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.idRede) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.idServ, 'Servicios', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.idServ) }}
+                    </div>
+                    <div>
+                        <div class="panel-footer text-center">
+                            <input type="submit" value="Guardar" class="btn btn-success col-sm-2"/>
+                            {{ form_end(edit_form) }}
+                            {{ form_start(delete_form) }}
+                                <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
+                            {{ form_end(delete_form) }}
+                            <a class="btn btn-default col-sm-2" href="{{ path('complejo_index') }}" >Atrás</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

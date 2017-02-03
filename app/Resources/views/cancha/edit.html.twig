@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+    {% form_theme edit_form '@App/Form/fields.html.twig' %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Canchas
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Escritorio</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>{{ cancha.nameCanch }}</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(edit_form) }}
+                    <div class="form-group">
+                        {{ form_label(edit_form.nameCanch, 'Nombre', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.nameCanch) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.cubi, 'Techada', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.cubi) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.precCanch, 'Precio', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.precCanch) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.idCapa, 'Capacidad', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.idCapa) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.idTipo, 'Tipo', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.idTipo) }}
+                        <br></br>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.idComp, 'Complejo', {'label_attr': {'class': 'foo'}}) }}
+                        {{ form_widget(edit_form.idComp) }}
+                        <br></br>
+                    </div>
+                    <div>
+                        <div class="panel-footer text-center">
+                            <input type="submit" value="Guardar" class="btn btn-success col-sm-2"/>
+                            {{ form_end(edit_form) }}
+                            {{ form_start(delete_form) }}
+                                <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
+                            {{ form_end(delete_form) }}
+                            <a class="btn btn-default col-sm-2" href="{{ path('cancha_index') }}" >Atrás</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

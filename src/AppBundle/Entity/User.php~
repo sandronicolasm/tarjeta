@@ -1,0 +1,189 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * FosUser
+ *
+ * @ORM\Table(name="fos_user")
+ * @ORM\Entity
+ */
+class User extends BaseUser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    protected $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_user", type="string", length=255, nullable=false)
+     *
+     */
+    protected $nameUser;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dni_user", type="integer", nullable=false)
+     */
+    protected $dniUser;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fnac_user", type="date", nullable=true)
+     */
+    protected $fnacUser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dire_user", type="string", length=255, nullable=true)
+     */
+    protected $direUser;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="phon_user", type="integer", nullable=true)
+     */
+    protected $phonUser;
+
+
+    /**
+     * Set nameUser
+     *
+     * @param string $nameUser
+     *
+     * @return User
+     */
+    public function setNameUser($nameUser)
+    {
+        $this->nameUser = $nameUser;
+
+        return $this;
+    }
+
+    /**
+     * Get nameUser
+     *
+     * @return string
+     */
+    public function getNameUser()
+    {
+        return $this->nameUser;
+    }
+
+    /**
+     * Set dniUser
+     *
+     * @param integer $dniUser
+     *
+     * @return User
+     */
+    public function setDniUser($dniUser)
+    {
+        $this->dniUser = $dniUser;
+
+        return $this;
+    }
+
+    /**
+     * Get dniUser
+     *
+     * @return integer
+     */
+    public function getDniUser()
+    {
+        return $this->dniUser;
+    }
+
+    /**
+     * Set fnacUser
+     *
+     * @param \DateTime $fnacUser
+     *
+     * @return User
+     */
+    public function setFnacUser($fnacUser)
+    {
+        $this->fnacUser = $fnacUser;
+
+        return $this;
+    }
+
+    /**
+     * Get fnacUser
+     *
+     * @return \DateTime
+     */
+    public function getFnacUser()
+    {
+        return $this->fnacUser;
+    }
+
+    /**
+     * Set direUser
+     *
+     * @param string $direUser
+     *
+     * @return User
+     */
+    public function setDireUser($direUser)
+    {
+        $this->direUser = $direUser;
+
+        return $this;
+    }
+
+    /**
+     * Get direUser
+     *
+     * @return string
+     */
+    public function getDireUser()
+    {
+        return $this->direUser;
+    }
+
+    /**
+     * Set phonUser
+     *
+     * @param integer $phonUser
+     *
+     * @return User
+     */
+    public function setPhonUser($phonUser)
+    {
+        $this->phonUser = $phonUser;
+
+        return $this;
+    }
+
+    /**
+     * Get phonUser
+     *
+     * @return integer
+     */
+    public function getPhonUser()
+    {
+        return $this->phonUser;
+    }
+
+    public function __construct()
+    {
+        parent::__construct();
+
+    }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Tarjeta Roja</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="libs/bootstrap/modern-business.css" rel="stylesheet">
+        <!-- Custom Fonts -->
+        <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="libs/fonts/style.css" rel="stylesheet">
+        <script src="libs/angular/angular.min.js"></script>
+        <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/navbar.js"></script>
+    </head>
+
+    <body>
+        <nav ng-controller="NavController" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../app/Resources/views/index/index.html"><i class="fa fa-futbol-o"></i> Tarjeta Roja</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="isCollapsed ? 'collapse' : 'in'">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-class="getClass('/')"><a href="../app/Resources/views/index/index.html"><i class="fa fa-home"></i> Home</a></li>
+                        <li ng-class="getClass('/complejos')"><a href="../app/Resources/views/index/complejos.html.twig">Complejos</a></li>
+                        <li ng-class="getClass('/campeonatos')"><a href="../app/Resources/views/index/campeonatos.html.twig">Campeonatos</a></li>
+                        <li ng-class="getClass('/contacto')"><a href="../app/Resources/views/index/contact.html.twig">Contacto</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                            <ul id="login-dp" class="dropdown-menu">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            Login via
+                                            <div class="social-buttons">
+                                                <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                                <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                            </div>
+                                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="exampleInputEmail2">Email</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
+                                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Contraseña" required>
+                                                    <div class="help-block text-right"><a href="">Olvidaste tu contraseña ?</a></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Recordarme
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="bottom text-center">
+                                            No tienes cuenta ? <a href="register.html"><b>Regístrate</b></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Perfil</a></li>
+                                <li><a href="#">Reservas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Salir</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+      <div class="container">
+			  <div class="row main">
+  				<div class="main-login main-center">
+  					<form class="form-horizontal" method="post" action="#">
+                        <div class="form-group">
+  							<label for="name" class="cols-sm-2 control-label">Nombre</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Ingrese su Nombre"/>
+                                </div>
+                            </div>
+                        </div>
+  						<div class="form-group">
+  							<label for="name" class="cols-sm-2 control-label">DNI</label>
+  							<div class="cols-sm-10">
+  								<div class="input-group">
+  									<span class="input-group-addon"><i class="fa fa-pencil-square-o fa" aria-hidden="true"></i></span>
+  									<input type="number" class="form-control" name="name" id="name"  placeholder="Ingrese su DNI"/>
+  								</div>
+  							</div>
+  						</div>
+                        <div class="form-group">
+  							<label for="name" class="cols-sm-2 control-label">Fecha de Nacimiento</label>
+  							<div class="cols-sm-10">
+  								<div class="input-group">
+  									<span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+  									<input type="date" class="form-control" name="name" id="name"  placeholder="Ingrese su Fecha de Nacimiento"/>
+  								</div>
+  							</div>
+  						</div>
+  						<div class="form-group">
+  							<label for="email" class="cols-sm-2 control-label">Email</label>
+  							<div class="cols-sm-10">
+  								<div class="input-group">
+  									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+  									<input type="email" class="form-control" name="email" id="email"  placeholder="Ingrese su Email"/>
+  								</div>
+  							</div>
+  						</div>
+                        <div class="form-group">
+  							<label for="email" class="cols-sm-2 control-label">Dirección</label>
+  							<div class="cols-sm-10">
+  								<div class="input-group">
+  									<span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
+  									<input type="text" class="form-control" name="email" id="email"  placeholder="Ingrese su Dirección"/>
+  								</div>
+  							</div>
+  						</div>
+                        <div class="form-group">
+  							<label for="email" class="cols-sm-2 control-label">Teléfono</label>
+  							<div class="cols-sm-10">
+  								<div class="input-group">
+  									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+  									<input type="tel" class="form-control" name="email" id="email"  placeholder="Ingrese su Teléfono"/>
+  								</div>
+  							</div>
+  						</div>
+  						<div class="form-group">
+  							<label for="password" class="cols-sm-2 control-label">Contraseña</label>
+  							<div class="cols-sm-10">
+  								<div class="input-group">
+  									<span class="input-group-addon"><i class="fa fa-unlock-alt fa-lg" aria-hidden="true"></i></span>
+  									<input type="password" class="form-control" name="password" id="password"  placeholder="Ingrese su Contraseña"/>
+  								</div>
+  							</div>
+  						</div>
+  						<div class="form-group">
+  							<label for="confirm" class="cols-sm-2 control-label">Confirme Contraseña</label>
+  							<div class="cols-sm-10">
+  								<div class="input-group">
+  									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+  									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirme su Contraseña"/>
+  								</div>
+  							</div>
+  						</div>
+  						<div class="form-group ">
+  							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Registrarse</button>
+  						</div>
+  						<div class="login-register">
+  				            <a href="index.php">Login</a>
+  				        </div>
+  					</form>
+  				</div>
+  			</div>
+		  </div>
+          <!-- /.row -->
+          <hr>
+        <!-- Barra redes sociales -->
+        <div class="social">
+            <ul>
+                <li><a href="http://www.facebook.com/" target="_blank" class="icon-facebook"></a></li>
+                <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+                <li><a href="http://www.instagram.com" target="_blank" class="icon-instagram"></a></li>
+                <li><a href="https://plus.google.com" target="_blank" class="icon-google"></a></li>
+                <li><a href="https://ar.linkedin.com" target="_blank" class="icon-linkedin"></a></li>
+
+            </ul>
+        </div>
+        <!-- Boton ir para arriba -->
+        <span class="ir-arriba icon fa fa-angle-double-up fa-2x"></span>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; tarjetaroja.16.mb.com</p>
+                </div>
+            </div>
+        </footer>
+        </div>
+        <!-- /.container -->
+
+        <!-- jQuery -->
+        <script src="libs/jquery/dist/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+
+                $('.ir-arriba').click(function(){
+                    $('body, html').animate({
+                        scrollTop: '0px'
+                    }, 300);
+                });
+
+                $(window).scroll(function(){
+                    if( $(this).scrollTop() > 0 ){
+                        $('.ir-arriba').slideDown(300);
+                    } else {
+                        $('.ir-arriba').slideUp(300);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

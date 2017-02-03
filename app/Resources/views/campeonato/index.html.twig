@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Campeonato
+            <small>Panel de Control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Escritorio</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="hpanel hred">
+            <div class="panel-heading">
+                <h3>Lista de Campeonato</h3>
+                <a href="{{ path('campeonato_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="hidden">Idcamp</th>
+                                <th>Nombre</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Finalización</th>
+                                <th>Precio Inscripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for campeonato in campeonatos %}
+                            <tr>
+                                <td class="hidden"><a href="{{ path('campeonato_show', { 'id': campeonato.idCamp }) }}">{{ campeonato.idCamp }}</a></td>
+                                <td>{{ campeonato.nameCamp }}</td>
+                                <td>{% if campeonato.fechInic %}{{ campeonato.fechInic|date('Y-m-d') }}{% endif %}</td>
+                                <td>{% if campeonato.fechFina %}{{ campeonato.fechFina|date('Y-m-d') }}{% endif %}</td>
+                                <td>{{ campeonato.precInsc }}</td>
+                                <td class="tools">
+                                    <a href="{{ path('campeonato_show', { 'id': campeonato.idCamp }) }}"><i class="fa fa-edit fa-2x"></i> </a>
+                                    <a href="{{ path('campeonato_edit', { 'id': campeonato.idCamp }) }}"><i class="fa fa-trash-o fa-2x"></i> </a>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

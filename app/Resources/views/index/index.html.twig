@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %} Tarjeta Roja {% endblock %}</title>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('libs/bootstrap/dist/css/bootstrap.min.css') }}"/>
+        <link href="{{ asset('libs/bootstrap/modern-business.css') }}" rel="stylesheet">
+        <link href="{{ asset('libs/fonts/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        <script src="{{ asset('libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+    <head>
+    <body>
+    {% block body %}
+        {% block navbar %}
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="{{ path('homepage') }}"><i class="fa fa-futbol-o"></i> Tarjeta Roja</a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Home</a></li>
+                      <li><a href="{{ path('complejosIndex')}}">Complejos</a></li>
+                      <li><a href="{{ path('campeonatosIndex') }}">Campeonatos</a></li>
+                      <li><a href="{{ path('contactIndex')}}">Contacto</a></li>
+                      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="{{ path('fos_user_profile_show') }}">Perfil</a></li>
+                                  <li role="separator" class="divider"></li>
+                                  <li><a href="{{ path('fos_user_security_logout') }}">
+                                          {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                      {% else %}
+                        <li class="dropdown">
+                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        </li>
+                          <li class="dropdown">
+                              <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                          </li>
+                      {% endif %}
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        {% endblock %}
+        {% block header %}
+        <header id="myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="fill" style="background-image:url('{{ asset('img/slide1.jpg') }}');"></div>
+                    <div class="carousel-caption">
+                        <h2>Encontrá aquí la cancha que buscas</h2>
+                    </div>
+                </div>
+                    <div class="item">
+                    <div class="fill" style="background-image:url('{{ asset('img/slide2.jpg') }}');"></div>
+                    <div class="carousel-caption">
+                        <h2>Alquilá Online</h2>
+                    </div>
+                    </div>
+                <div class="item">
+                    <div class="fill" style="background-image:url('{{ asset('img/slide3.jpg') }}');"></div>
+                    <div class="carousel-caption">
+                        <h2>Informate sobre campeonatos</h2>
+                    </div>
+                </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </header>
+        {% endblock %}
+
+        {% block container %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                  <h1 class="page-header">
+                      Bienvenido a TarjetaRoja
+                  </h1>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4><i class="fa fa-hand-o-right fa-2x"></i> Alquila tu Cancha Online</h4>
+                      </div>
+                      <div class="panel-body">
+                          <p>Encontrá y alquilá de forma online desde tu casa tu cancha preferida para pasar un buen momento con amigos, además enterate de los servicios que proveen los complejos cada uno de los complejos y los precios disponibles.</p>
+                          <a href="{{ path('complejosIndex')}}" class="btn btn-default">Ver Más</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4><i class="fa fa-trophy fa-2x"></i> Campeonatos disponibles</h4>
+                      </div>
+                      <div class="panel-body">
+                          <p>El lugar correcto para informarte sobre los campeonatos que realizan los complejos de tu zona. Sección que se mantendrá actualizada a medida que los administradores de los complejos publiquen un nuevo torneo disponible.</p>
+                          <a href="{{ path('campeonatosIndex') }}" class="btn btn-default">Ver Más</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4><i class="fa fa-info-circle fa-2x"></i> Contactanos</h4>
+                        </div>
+                        <div class="panel-body">
+                          <p>Ante cualquier consulta o reclamo no dude en ponerse en contacto con nosotros, mediante los diferentes medios de comunicación que tenemos disponibles. Su consulta es bienvenida.</p>
+                          <a href="{{ path('contactIndex')}}" class="btn btn-default">Ver Más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <hr>
+        </div>
+        {% endblock %}
+        {% block redes %}
+            <!-- Barra redes sociales -->
+            <div class="social">
+                <ul>
+                    <li><a href="http://www.facebook.com/" target="_blank" class="icon-facebook"></a></li>
+                    <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+                    <li><a href="http://www.instagram.com" target="_blank" class="icon-instagram"></a></li>
+                    <li><a href="https://plus.google.com" target="_blank" class="icon-google"></a></li>
+                    <li><a href="https://ar.linkedin.com" target="_blank" class="icon-linkedin"></a></li>
+
+                </ul>
+            </div>
+
+
+            <!-- Boton ir para arriba -->
+            <span class="ir-arriba icon fa fa-angle-double-up fa-2x"></span>
+
+            <hr>
+        {% endblock %}
+
+        {% block footer %}
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; tarjetaroja.16.mb.com</p>
+                </div>
+            </div>
+        </footer>
+        {% endblock %}
+
+        {% block javascripts %}
+        <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+        <script src="{{ asset('libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+
+        <script>
+        $('.carousel').carousel({
+          interval: 5000 //changes the speed
+        })
+        </script>
+
+        <script>
+            $(document).ready(function(){
+
+                $('.ir-arriba').click(function(){
+                    $('body, html').animate({
+                        scrollTop: '0px'
+                    }, 300);
+                });
+
+                $(window).scroll(function(){
+                    if( $(this).scrollTop() > 0 ){
+                        $('.ir-arriba').slideDown(300);
+                    } else {
+                        $('.ir-arriba').slideUp(300);
+                    }
+                });
+                $(".iframe").colorbox({iframe:true, width:"80%", height:"65%"});
+            });
+        </script>
+        {% endblock %}
+
+    </body>
+{% endblock %}

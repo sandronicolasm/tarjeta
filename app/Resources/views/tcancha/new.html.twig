@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Complejos
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Escritorio</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>Nuevo Tipo</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_label(form.nameTipo, 'Nombre', {'label_attr': {'class': 'foo'}}) }}
+                            {{ form_widget(form.nameTipo) }}
+                        </div>
+                        <div>
+                            <div class="panel-footer text-center">
+                                <a class="btn btn-default" href="{{ path('admin_tcancha_index') }}">Atrás</a>
+                                <input type="submit" value="Crear" class="btn btn-success"/>
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hora</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idhora</th>
+                <td>{{ hora.idHora }}</td>
+            </tr>
+            <tr>
+                <th>Hora</th>
+                <td>{% if hora.hora %}{{ hora.hora|date('H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('super_hora_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('super_hora_edit', { 'id': hora.idHora }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

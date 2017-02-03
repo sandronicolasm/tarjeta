@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Tipo de Cancha
+            <small>Panel de Control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Escritorio</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="hpanel hred">
+            <div class="panel-heading">
+                <h3>{{ tcancha.nameTipo }}</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr class="hidden">
+                            <th>Idtipo</th>
+                            <td>{{ tcancha.idTipo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ tcancha.nameTipo }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer text-center">
+                <a href="{{ path('admin_tcancha_edit', { 'id': tcancha.idTipo }) }}" class="btn btn-primary col-sm-2">Editar</a>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
+                {{ form_end(delete_form) }}
+                <a href="{{ path('admin_tcancha_index') }}" class="btn btn-default col-sm-2">Atras</a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

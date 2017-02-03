@@ -1,0 +1,17 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</h3>
+                {% if targetUrl %}
+                    <a class="btn btn-lg btn-default " href="{{ path('homepage') }}"><i class="fa fa-reply"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}

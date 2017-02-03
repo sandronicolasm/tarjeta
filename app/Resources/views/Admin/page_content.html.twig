@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Escritorio
+            <small>Panel de Control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Escritorio</li>
+        </ol>
+    </section>
+    <section class="content">
+        <h1> Bienvenido al Administrador de tarjetaroja.com</h1>
+        <h4> Seleccione una Lista para Ver</h4>
+        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Complejos</a>
+        <ul>
+            <li><a href="{{ path('complejo_index') }}">Listado</a></li>
+            <li><a href="{{ path('cancha_index') }}">Canchas</a></li>
+            <li><a href="{{ path('admin_tcancha_index') }}">Tipo de Canchas</a></li>
+        </ul>
+    </section>
+</div>
+
+{% endblock %}

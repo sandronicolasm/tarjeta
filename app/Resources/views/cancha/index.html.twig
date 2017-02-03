@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Escritorio
+            <small>Panel de Control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Escritorio</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="hpanel hred">
+            <div class="panel-heading">
+                <h3>Canchas</h3>
+                <a href="{{ path('cancha_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="hidden">Idcanch</th>
+                                <th>Nombre Cancha</th>
+                                <th>Techada</th>
+                                <th>Precio</th>
+                                <th class="hidden">Fecha Cargada</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for cancha in canchas %}
+                            <tr>
+                                <td class="hidden"><a href="{{ path('cancha_show', { 'id': cancha.idCanch }) }}">{{ cancha.idCanch }}</a></td>
+                                <td>{{ cancha.nameCanch }}</td>
+                                <td>{% if cancha.cubi %}Yes{% else %}No{% endif %}</td>
+                                <td>{{ cancha.precCanch }}</td>
+                                <td class="hidden">{% if cancha.timestamp %}{{ cancha.timestamp|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>
+                                    <a href="{{ path('cancha_show', { 'id': cancha.idCanch }) }}"><i class="fa fa-edit fa-2x"></i></a>
+                                    <a href="{{ path('cancha_edit', { 'id': cancha.idCanch }) }}"><i class="fa fa-trash-o fa-2x"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

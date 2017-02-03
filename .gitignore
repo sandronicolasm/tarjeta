@@ -1,0 +1,71 @@
+/vendor/
+/build/
+/phpunit.xml
+/web/bundles/
+/nbproject/
+/.idea/
+app/bootstrap.php.cache
+app/bootstrap_cache.php.cache
+/app/config/parameters.ini
+composer.phar
+/app/config/parameters.yml
+/var/
+/var/logs/dev.log
+
+
+# -- PHPUnit ------------------------------------------
+app/phpunit.xml
+
+# -- Editores -----------------------------------------
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.buildpath
+
+
+# textmate
+*.tmproj
+*.tmproject
+tmtags
+
+# sublimetext
+/*.sublime-project
+*.sublime-workspace
+
+# netbeans
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# -- Sistemas Operativos ------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+/var/logs/dev.log
+!/var/logs/dev.log

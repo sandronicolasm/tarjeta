@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Complejos
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Escritorio</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>Complejo {{ complejo.nameComp }}</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr class="hidden">
+                                <th>Idcomp</th>
+                                <td>{{ complejo.idComp }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <td>{{ complejo.nameComp }}</td>
+                            </tr>
+                            <tr>
+                                <th>Dirección</th>
+                                <td>{{ complejo.direComp }}</td>
+                            </tr>
+                            <tr>
+                                <th>Teléfono</th>
+                                <td>{{ complejo.phonComp }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ complejo.mailComp }}</td>
+                            </tr>
+                            <tr>
+                                <th>Descripción</th>
+                                <td>{{ complejo.descripComp }}</td>
+                            </tr>
+                            <tr>
+                                <th>Url</th>
+                                <td>{{ complejo.urlComp }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="{{ path('complejo_edit', { 'id': complejo.idComp }) }}" class="btn btn-primary col-sm-2">Editar</a>
+                    {{ form_start(delete_form) }}
+                        <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
+                    {{ form_end(delete_form) }}
+                    <a href="{{ path('complejo_index') }}" class="btn btn-default col-sm-2">Atras</a>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

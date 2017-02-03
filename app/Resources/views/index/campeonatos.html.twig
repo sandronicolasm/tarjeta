@@ -1,0 +1,47 @@
+{% extends 'index/index.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-header">Últimos Campeonatos Disponibles</h1>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('homepage') }}">Home</a></li>
+                    <li class="active">Campeonatos</li>
+                </ol>
+            </div>
+        </div>
+        {% for campeonato in campeonatos %}
+            <div class="row">
+                <div class="col-md-1 text-center">
+                    <p><i class="fa fa-futbol-o fa-3x"></i></p>
+                </div>
+                <div >
+                    <div class="col-md-5">
+                        <img class="img-responsive img-hover" src="{{ campeonato.urlFoto}}" alt="">
+                        <hr>
+                    </div>
+                    <div class="col-md-6" >
+                        <h3>{{ campeonato.nameCamp }}</h3>
+                        <p>Organizado por: {{ campeonato.idComp }}</p>
+                        <p>Inicio:  {{ campeonato.fechInic | date("d/m/Y") }}   Final: {{ campeonato.fechFina | date("d/m/Y") }}</p>
+                        <p>{{ campeonato.descCamp }}</p>
+                        <p>Precio Inscripción: $ {{ campeonato.precInsc }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <ul class="pager">
+            <li class="previous">
+                <a href="#">&larr; Anterior</a>
+            </li>
+            <li class="next">
+                <a href="#">Siguiente &rarr;</a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends ':index:index.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Complejos</h1>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('homepage') }}">Home</a></li>
+                    <li class="active">Complejos</li>
+                </ol>
+            </div>
+            {% for complejo in complejos %}
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="{{ complejo.urlComp }}" alt="">
+                        <div class="caption">
+                            <h3><a href="{{ path('descripIndex', { 'id': complejo.idComp }) }}">{{ complejo.nameComp }}</a><br>
+                                <small>{{ complejo.direComp }} <br> {{ complejo.phonComp }}</small>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

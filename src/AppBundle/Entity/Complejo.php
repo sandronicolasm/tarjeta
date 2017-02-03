@@ -1,0 +1,367 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Complejo
+ *
+ * @ORM\Table(name="complejo")
+ * @ORM\Entity
+ */
+class Complejo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_comp", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idComp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_comp", type="string", length=255, nullable=false)
+     */
+    private $nameComp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dire_comp", type="string", length=255, nullable=false)
+     */
+    private $direComp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="phon_comp", type="integer", nullable=true)
+     */
+    private $phonComp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail_comp", type="string", length=255, nullable=true)
+     */
+    private $mailComp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descrip_comp", type="string", length=255, nullable=true)
+     */
+    private $descripComp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url_comp", type="string", length=255, nullable=true)
+     */
+    private $urlComp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime", nullable=true)
+     */
+    private $timestamp;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Redes", inversedBy="idComp")
+     * @ORM\JoinTable(name="comp_redes",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_comp", referencedColumnName="id_comp")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_rede", referencedColumnName="id_rede")
+     *   }
+     * )
+     */
+    private $idRede;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Servicio", inversedBy="idComp")
+     * @ORM\JoinTable(name="comp_serv",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_comp", referencedColumnName="id_comp")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_serv", referencedColumnName="id_Serv")
+     *   }
+     * )
+     */
+    private $idServ;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idRede = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idServ = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
+     * Get idComp
+     *
+     * @return integer
+     */
+    public function getIdComp()
+    {
+        return $this->idComp;
+    }
+
+    /**
+     * Set nameComp
+     *
+     * @param string $nameComp
+     *
+     * @return Complejo
+     */
+    public function setNameComp($nameComp)
+    {
+        $this->nameComp = $nameComp;
+    
+        return $this;
+    }
+
+    /**
+     * Get nameComp
+     *
+     * @return string
+     */
+    public function getNameComp()
+    {
+        return $this->nameComp;
+    }
+
+    /**
+     * Set direComp
+     *
+     * @param string $direComp
+     *
+     * @return Complejo
+     */
+    public function setDireComp($direComp)
+    {
+        $this->direComp = $direComp;
+    
+        return $this;
+    }
+
+    /**
+     * Get direComp
+     *
+     * @return string
+     */
+    public function getDireComp()
+    {
+        return $this->direComp;
+    }
+
+    /**
+     * Set phonComp
+     *
+     * @param integer $phonComp
+     *
+     * @return Complejo
+     */
+    public function setPhonComp($phonComp)
+    {
+        $this->phonComp = $phonComp;
+    
+        return $this;
+    }
+
+    /**
+     * Get phonComp
+     *
+     * @return integer
+     */
+    public function getPhonComp()
+    {
+        return $this->phonComp;
+    }
+
+    /**
+     * Set mailComp
+     *
+     * @param string $mailComp
+     *
+     * @return Complejo
+     */
+    public function setMailComp($mailComp)
+    {
+        $this->mailComp = $mailComp;
+    
+        return $this;
+    }
+
+    /**
+     * Get mailComp
+     *
+     * @return string
+     */
+    public function getMailComp()
+    {
+        return $this->mailComp;
+    }
+
+    /**
+     * Set descripComp
+     *
+     * @param string $descripComp
+     *
+     * @return Complejo
+     */
+    public function setDescripComp($descripComp)
+    {
+        $this->descripComp = $descripComp;
+    
+        return $this;
+    }
+
+    /**
+     * Get descripComp
+     *
+     * @return string
+     */
+    public function getDescripComp()
+    {
+        return $this->descripComp;
+    }
+
+    /**
+     * Set urlComp
+     *
+     * @param string $urlComp
+     *
+     * @return Complejo
+     */
+    public function setUrlComp($urlComp)
+    {
+        $this->urlComp = $urlComp;
+    
+        return $this;
+    }
+
+    /**
+     * Get urlComp
+     *
+     * @return string
+     */
+    public function getUrlComp()
+    {
+        return $this->urlComp;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     *
+     * @return Complejo
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Add idRede
+     *
+     * @param \AppBundle\Entity\Redes $idRede
+     *
+     * @return Complejo
+     */
+    public function addIdRede(\AppBundle\Entity\Redes $idRede)
+    {
+        $this->idRede[] = $idRede;
+    
+        return $this;
+    }
+
+    /**
+     * Remove idRede
+     *
+     * @param \AppBundle\Entity\Redes $idRede
+     */
+    public function removeIdRede(\AppBundle\Entity\Redes $idRede)
+    {
+        $this->idRede->removeElement($idRede);
+    }
+
+    /**
+     * Get idRede
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdRede()
+    {
+        return $this->idRede;
+    }
+
+    /**
+     * Add idServ
+     *
+     * @param \AppBundle\Entity\Servicio $idServ
+     *
+     * @return Complejo
+     */
+    public function addIdServ(\AppBundle\Entity\Servicio $idServ)
+    {
+        $this->idServ[] = $idServ;
+    
+        return $this;
+    }
+
+    /**
+     * Remove idServ
+     *
+     * @param \AppBundle\Entity\Servicio $idServ
+     */
+    public function removeIdServ(\AppBundle\Entity\Servicio $idServ)
+    {
+        $this->idServ->removeElement($idServ);
+    }
+
+    /**
+     * Get idServ
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdServ()
+    {
+        return $this->idServ;
+    }
+
+    public function __toString()
+    {
+
+        return (string)$this->nameComp;
+    }
+    
+
+}

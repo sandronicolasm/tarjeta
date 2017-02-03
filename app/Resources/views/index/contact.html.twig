@@ -1,0 +1,82 @@
+{% extends ':index:index.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Contacto
+                    <small>Datos de SSS&Web</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('homepage') }}">Home</a>
+                    </li>
+                    <li class="active">Contacto</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Content Row -->
+        <div  class="row" >
+            <!-- Map Column -->
+            <div class="col-md-8">
+                <iframe src="https://www.google.com/maps/d/embed?mid=144FBmpCwYBKIWj9cY5YN-wXIBiA" width="640" height="480"></iframe>
+            </div>
+            <!-- Contact Details Column -->
+            <div class="col-md-4">
+                <h3>Detalles de Contacto</h3>
+                <p>
+                    Sobremonte y Presidente Perón<br>Río Cuarto, Córdoba, Argentina<br>
+                </p>
+                <i class="fa fa-phone fa"></i>
+                    <abbr title="Teléfonos de contacto">Teléfonos</abbr>: <br>(358)155099423 - <a href="http://www.facebook.com/sandro.manez.91" target="_blank">Sandro Mañez</a><br>(358)154118925 - <a href="http://www.facebook.com/Santhy.95" target="_blank">Santiago Mañez</a><br>(358)154374819 - <a href="http://www.facebook.com/santos.soffli" target="_blank">Santos Soffli</a></p>
+                <p><i class="fa fa-envelope-o fa"></i>
+                    <abbr title="Email">Emails</abbr>: <br><a href="mailto:s.manez@itecriocuarto.org.ar">s.manez@itecriocuarto.org.ar<br><a href="mailto:g.manez@itecriocuarto.org.ar">g.manez@itecriocuarto.org.ar</a><br><a href="mailto:s.soffli@itecriocuarto.org.ar">s.soffli@itecriocuarto.org.ar</a>
+                </p>
+                <p><i class="fa fa-clock-o fa"></i>
+                    <abbr title="Horario Atención">Horarios</abbr>: Lunes a Viernes: 09:00 AM - 09:00 PM</p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Envíe un Mensaje</h3>
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="name" required data-validation-required-message="Ingrese su nombre">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Numero Teléfono</label>
+                            <input type="tel" class="form-control" id="phone" required data-validation-required-message="Ingrese su número de teléfono">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="email" required data-validation-required-message="Ingrese su email">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Mensaje</label>
+                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Escriba aquí su mensaje" maxlength="999" style="resize:none"></textarea>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+{% endblock %}

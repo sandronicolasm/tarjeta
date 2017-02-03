@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Horas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idhora</th>
+                <th>Hora</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hora in horas %}
+            <tr>
+                <td><a href="{{ path('super_hora_show', { 'id': hora.idHora }) }}">{{ hora.idHora }}</a></td>
+                <td>{% if hora.hora %}{{ hora.hora|date('H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('super_hora_show', { 'id': hora.idHora }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('super_hora_edit', { 'id': hora.idHora }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('super_hora_new') }}">Create a new hora</a>
+        </li>
+    </ul>
+{% endblock %}

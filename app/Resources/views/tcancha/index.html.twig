@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Escritorio
+            <small>Panel de Control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Escritorio</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="hpanel hred">
+            <div class="panel-heading">
+                <h3>Tipos de Canchas</h3>
+                <a href="{{ path('admin_tcancha_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="hidden">Idtipo</th>
+                                <th>Nombre Tipo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for tcancha in tcanchas %}
+                            <tr>
+                                <td class="hidden"><a href="{{ path('admin_tcancha_show', { 'id': tcancha.idTipo }) }}">{{ tcancha.idTipo }}</a></td>
+                                <td>{{ tcancha.nameTipo }}</td>
+                                <td class="tools">
+                                    <a href="{{ path('admin_tcancha_show', { 'id': tcancha.idTipo }) }}"><i class="fa fa-edit fa-2x"></i></a>
+                                    <a href="{{ path('admin_tcancha_edit', { 'id': tcancha.idTipo }) }}"><i class="fa fa-trash-o fa-2x"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
