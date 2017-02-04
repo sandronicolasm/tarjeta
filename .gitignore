@@ -69,3 +69,4 @@ $RECYCLE.BIN/
 /var/logs/dev.log
 !/var/logs/dev.log
 !/web/bundles/
+!/composer.phar
