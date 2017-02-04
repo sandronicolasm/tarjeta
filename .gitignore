@@ -1,16 +1,16 @@
 /vendor/
 /build/
 /phpunit.xml
-/web/bundles/
+
 /nbproject/
 /.idea/
 app/bootstrap.php.cache
 app/bootstrap_cache.php.cache
 /app/config/parameters.ini
-composer.phar
+
 /app/config/parameters.yml
 /var/
-/var/logs/dev.log
+
 
 
 # -- PHPUnit ------------------------------------------
@@ -66,7 +66,3 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-/var/logs/dev.log
-!/var/logs/dev.log
-!/web/bundles/
-!/composer.phar
