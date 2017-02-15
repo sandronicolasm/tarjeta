@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <title>{% block title %} Tarjeta Roja {% endblock %}</title>
+
+
 
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('libs/bootstrap/dist/css/bootstrap.min.css') }}"/>
@@ -23,14 +26,14 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="{{ path('homepage') }}"><i class="fa fa-futbol-o"></i> Tarjeta Roja</a>
+                  <a class="navbar-brand" href="{{ path('app_default') }}"><i class="fa fa-futbol-o"></i> Tarjeta Roja</a>
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Home</a></li>
-                      <li><a href="{{ path('complejosIndex')}}">Complejos</a></li>
-                      <li><a href="{{ path('campeonatosIndex') }}">Campeonatos</a></li>
-                      <li><a href="{{ path('contactIndex')}}">Contacto</a></li>
+                      <li><a href="{{ path('app_default') }}"><i class="fa fa-home"></i> Home</a></li>
+                      <li><a href="{{ path('app_default')}}">{{ 'complejos'|trans }}</a></li>
+                      <li><a href="{{ path('app_default') }}">Campeonatos</a></li>
+                      <li><a href="{{ path('app_default')}}">Contacto</a></li>
                       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}<span class="caret"></span></a>
@@ -109,7 +112,7 @@
                       </div>
                       <div class="panel-body">
                           <p>Encontrá y alquilá de forma online desde tu casa tu cancha preferida para pasar un buen momento con amigos, además enterate de los servicios que proveen los complejos cada uno de los complejos y los precios disponibles.</p>
-                          <a href="{{ path('complejosIndex')}}" class="btn btn-default">Ver Más</a>
+                          <a href="{{ path('app_default')}}" class="btn btn-default">Ver Más</a>
                       </div>
                     </div>
                 </div>
@@ -120,7 +123,7 @@
                       </div>
                       <div class="panel-body">
                           <p>El lugar correcto para informarte sobre los campeonatos que realizan los complejos de tu zona. Sección que se mantendrá actualizada a medida que los administradores de los complejos publiquen un nuevo torneo disponible.</p>
-                          <a href="{{ path('campeonatosIndex') }}" class="btn btn-default">Ver Más</a>
+                          <a href="{{ path('app_default') }}" class="btn btn-default">Ver Más</a>
                       </div>
                     </div>
                 </div>
@@ -131,7 +134,7 @@
                         </div>
                         <div class="panel-body">
                           <p>Ante cualquier consulta o reclamo no dude en ponerse en contacto con nosotros, mediante los diferentes medios de comunicación que tenemos disponibles. Su consulta es bienvenida.</p>
-                          <a href="{{ path('contactIndex')}}" class="btn btn-default">Ver Más</a>
+                          <a href="{{ path('app_default')}}" class="btn btn-default">Ver Más</a>
                         </div>
                     </div>
                 </div>
