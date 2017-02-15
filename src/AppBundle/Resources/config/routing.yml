@@ -1,6 +1,7 @@
 app_default:
     path:     /index
     defaults: { _controller: AppBundle:Index:index }
+    methods: GET
 
 app_complejos:
     path:     /complejos
