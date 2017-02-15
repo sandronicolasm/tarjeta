@@ -3,37 +3,25 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class IndexController extends Controller
 {
-    /**
-     * @Route("{_locale}/index", name = "homepage")
-     **/
-//    public function indexAction(Request $request)
-//    {
-//
-//        return $this->render('index/index.html.twig', array(
-//            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-//            'locale' => $request->getLocale(),
-//        ));
-//    }
 
-    public function indexAction(Request $request) {
+    public function indexAction()
+    {
 
         return $this->render('index/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'locale' => $request->getLocale(),
+
         ));
     }
 
-    /**
-     * @Route("{_locale}/index/camp", name= "campeonatosIndex")
-     **/
+    public function langAction(Request $request)
+    {
+        return $this->redirectToRoute('app_default');
+    }
 
-    public function campAction(Request $request)
+    public function campAction()
     {
         $em = $this->getDoctrine()->getManager();
         $campeonatos = $em->getRepository('AppBundle:Campeonato')->findAll();
@@ -41,15 +29,12 @@ class IndexController extends Controller
 
         return $this->render('index/campeonatos.html.twig', array(
             'campeonatos' => $campeonatos,
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'locale' => $request->getLocale(),
+
         ));
     }
 
-    /**
-     * @Route("{_locale}/index/comp", name= "complejosIndex")
-     **/
-    public function compAction(Request $request)
+
+    public function compAction()
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -57,18 +42,11 @@ class IndexController extends Controller
 
         return $this->render('index/complejos.html.twig', array(
             'complejos' => $complejos,
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'locale' => $request->getLocale(),
+
         ));
     }
 
-    /**
-     * Finds and displays a complejo description.
-     *
-     * @Route("{_locale}/index/comp/decrip_cancha/{id}", name="descripIndex")
-     * @Method("GET")
-     */
-    public function desc_canchaAction($id, Request $request)
+    public function desc_canchaAction($id)
     {
 //
 //        $descrip = $this->getDoctrine()
@@ -94,32 +72,25 @@ class IndexController extends Controller
         }
         return $this->render('index/desc_cancha.html.twig', array(
             'descri' => $array,
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'locale' => $request->getLocale(),
+
     ));
 
     }
     
     
-    /**
-     * @Route("{_locale}/index/contact", name= "contactIndex")
-     **/
-    public function contactAction(Request $request)
+
+    public function contactAction()
     {
         return $this->render('index/contact.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'locale' => $request->getLocale(),
+
         ));
     }
     
-    /**
-     * @Route("{_locale}/index/descrip_cancha/calendar", name= "calendar")
-     **/
-    public function calendarAction(Request $request)
+
+    public function calendarAction()
     {
         return $this->render('index/calendario.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'locale' => $request->getLocale(),
+
         ));
     }
 
@@ -127,7 +98,7 @@ class IndexController extends Controller
     /**
      * @Route("{_locale}/index/descrip_cancha/calendar/email", name= "send_email")
      **/
-    public function emailAction(Request $request)
+    public function emailAction()
     {
         $message = \Swift_Message::newInstance()
             ->setSubject('Hello Team tarjetaroja.com')
@@ -144,8 +115,6 @@ class IndexController extends Controller
         $this->get('mailer')->send($message);
 
         return $this->render(':index:email_send.html.twig',array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'locale' => $request->getLocale(),
         ));
     }
 }

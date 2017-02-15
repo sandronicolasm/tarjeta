@@ -5,8 +5,9 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class LocalListener implements EventSubscriberInterface
+class LocaleListener implements EventSubscriberInterface
 {
+
     private $defaultLocale;
 
     public function __construct($defaultLocale = 'en')
@@ -36,4 +37,6 @@ class LocalListener implements EventSubscriberInterface
             KernelEvents::REQUEST => array(array('onKernelRequest', 17)),
         );
     }
+
+
 }

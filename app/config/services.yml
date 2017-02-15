@@ -18,8 +18,8 @@ services:
         tags:
             - { name: form.type, alias: app_user_profile }
 
-    app_bundle.locale_listener:
-        class: AppBundle\EventListener\LocalListener
+    app.locale_listener:
+        class: AppBundle\EventListener\LocaleListener
         arguments: ["%kernel.default_locale%"]
         tags:
             - { name: kernel.event_subscriber }
