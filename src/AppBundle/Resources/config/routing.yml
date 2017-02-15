@@ -1,3 +1,27 @@
 app_default:
-    path:     /{_locale}/index
+    path:     /index
     defaults: { _controller: AppBundle:Index:index }
+
+app_complejos:
+    path:     /complejos
+    defaults: { _controller: AppBundle:Index:comp }
+
+app_campeonatos:
+    path:     /campeonatos
+    defaults: { _controller: AppBundle:Index:camp }
+
+app_descripcion:
+    path:     /complejos/decripcion/{id}
+    defaults: { _controller: AppBundle:Index:desc_cancha }
+
+app_contacto:
+    path:     /contacto
+    defaults: { _controller: AppBundle:Index:contact }
+
+app_descrip:
+    path:     /complejos/decripcion/calendario
+    defaults: { _controller: AppBundle:Index:desc_cancha }
+
+app_lang:
+    path:     /lang/{_locale}
+    defaults: { _controller: AppBundle:Index:lang }
