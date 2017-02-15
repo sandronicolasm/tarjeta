@@ -11,9 +11,9 @@ parameters:
     # database_path: "%kernel.root_dir%/data.db3"
 
     mailer_transport:  gmail
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
+    mailer_host:       smtp.gmail.com
+    mailer_user:       santycabj95@gmail.com
+    mailer_password:   393254541331
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt

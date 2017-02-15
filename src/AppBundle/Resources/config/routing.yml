@@ -1,0 +1,3 @@
+app_default:
+    path:     /{_locale}/index
+    defaults: { _controller: AppBundle:Index:index }
