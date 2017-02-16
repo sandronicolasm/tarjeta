@@ -18,7 +18,7 @@ class IndexController extends Controller
 
     public function langAction(Request $request)
     {
-        return $this->redirectToRoute('app_default');
+        return $this->redirectToRoute('app_default', array($request));
     }
 
     public function campAction()
