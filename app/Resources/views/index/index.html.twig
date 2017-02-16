@@ -30,15 +30,15 @@
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="{{ path('app_default') }}"><i class="fa fa-home"></i> Home</a></li>
+                      <li><a href="{{ path('app_default') }}"><i class="fa fa-home"></i> {% trans %} home {% endtrans %}</a></li>
                       <li><a href="{{ path('app_complejos')}}">{% trans %} complex {% endtrans %}</a></li>
-                      <li><a href="{{ path('app_campeonatos') }}">Campeonatos</a></li>
-                      <li><a href="{{ path('app_contacto')}}">Contacto</a></li>
+                      <li><a href="{{ path('app_campeonatos') }}">{% trans %} champ {% endtrans %}</a></li>
+                      <li><a href="{{ path('app_contacto')}}">{% trans %} contact{% endtrans %}</a></li>
                       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}<span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="{{ path('fos_user_profile_show') }}">Perfil</a></li>
+                                  <li><a href="{{ path('fos_user_profile_show') }}">{% trans %} profile {% endtrans %}</a></li>
                                   <li role="separator" class="divider"></li>
                                   <li><a href="{{ path('fos_user_security_logout') }}">
                                           {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
@@ -102,39 +102,39 @@
             <div class="row">
                 <div class="col-lg-12">
                   <h1 class="page-header">
-                      {% trans %} welcome_to {% endtrans %} TarjetaRoja
+                      {% trans %} welcome_to {% endtrans %} Tarjeta Roja
                   </h1>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                          <h4><i class="fa fa-hand-o-right fa-2x"></i> Alquila tu Cancha Online</h4>
+                          <h4><i class="fa fa-hand-o-right fa-2x"></i>{% trans %} rent_title {% endtrans %}</h4>
                       </div>
                       <div class="panel-body">
                           <p>{% trans %} rent_text {% endtrans %}</p>
-                          <a href="{{ path('app_complejos')}}" class="btn btn-default">Ver Más</a>
+                          <a href="{{ path('app_complejos')}}" class="btn btn-default">{% trans %} view_more{% endtrans %}</a>
                       </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                          <h4><i class="fa fa-trophy fa-2x"></i> Campeonatos disponibles</h4>
+                          <h4><i class="fa fa-trophy fa-2x"></i> {% trans %} champ_title {% endtrans %}</h4>
                       </div>
                       <div class="panel-body">
-                          <p>El lugar correcto para informarte sobre los campeonatos que realizan los complejos de tu zona. Sección que se mantendrá actualizada a medida que los administradores de los complejos publiquen un nuevo torneo disponible.</p>
-                          <a href="{{ path('app_campeonatos') }}" class="btn btn-default">Ver Más</a>
+                          <p>{% trans %} champ_text {% endtrans %}</p>
+                          <a href="{{ path('app_campeonatos') }}" class="btn btn-default">{% trans %} view_more{% endtrans %}</a>
                       </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          <h4><i class="fa fa-info-circle fa-2x"></i> Contactanos</h4>
+                          <h4><i class="fa fa-info-circle fa-2x"></i> {% trans %} contact {% endtrans %}</h4>
                         </div>
                         <div class="panel-body">
-                          <p>Ante cualquier consulta o reclamo no dude en ponerse en contacto con nosotros, mediante los diferentes medios de comunicación que tenemos disponibles. Su consulta es bienvenida.</p>
-                          <a href="{{ path('app_contacto')}}" class="btn btn-default">Ver Más</a>
+                          <p>{% trans %}contact_text {% endtrans %}</p>
+                          <a href="{{ path('app_contacto')}}" class="btn btn-default">{% trans %} view_more{% endtrans %}</a>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; tarjetaroja.16.mb.com</p>
+                    <p>Copyright &copy; tarjetaroja.16mb.com</p>
                 </div>
             </div>
         </footer>
