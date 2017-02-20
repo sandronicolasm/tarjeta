@@ -1,3 +1,19 @@
+app_champ:
+    resource: "@AppBundle/Resources/config/routing/championship.yml"
+    prefix:   /campeonatos
+
+app_complex:
+    resource: "@AppBundle/Resources/config/routing/complex.yml"
+    prefix:   /complejos
+
+app_type_courtes:
+    resource: "@AppBundle/Resources/config/routing/type_courtes.yml"
+    prefix:   /type-courtes
+
+app_courtes:
+    resource: "@AppBundle/Resources/config/routing/courtes.yml"
+    prefix:   /courtes
+
 app_default:
     path:     /index
     defaults: { _controller: AppBundle:Index:index }
@@ -26,3 +42,13 @@ app_descrip:
 app_lang:
     path:     /lang/{_locale}
     defaults: { _controller: AppBundle:Index:lang }
+
+s_admin:
+    path:     /admin-s
+    defaults: {_controller: AppBundle:Admin:super}
+    methods: GET
+
+admin:
+    path:     /admin
+    defaults: {_controller: AppBundle:Admin:admin}
+    methods: GET

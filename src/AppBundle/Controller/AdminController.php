@@ -10,33 +10,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminController extends Controller
 {
-    /**
-     * @Route("admin/")
-     **/
+
     public function adminAction()
     {
-        return $this->render('Admin/page_content.html.twig', array(
+        return $this->render(':Admin:page_content.html.twig', array(
 
         ));
     }
 
-
-    /**
-     * @Route("admin/vich")
-     **/
-    public function renderAction()
-    {
-        return $this->render('@VichUploader/Form/fields.html.twig', array(
-
-        ));
-    }
-    
-    /**
-     * @Route("admin/super/")
-     **/
     public function superAction()
     {
-        return $this->render('Admin/page_content_super.html.twig', array(
+        return $this->render(':Admin:page_content_super.html.twig', array(
 
         ));
     }
