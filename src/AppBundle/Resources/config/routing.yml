@@ -1,10 +1,10 @@
 app_champ:
     resource: "@AppBundle/Resources/config/routing/championship.yml"
-    prefix:   /campeonatos
+    prefix:   /championships
 
 app_complex:
     resource: "@AppBundle/Resources/config/routing/complex.yml"
-    prefix:   /complejos
+    prefix:   /complex
 
 app_type_courtes:
     resource: "@AppBundle/Resources/config/routing/type_courtes.yml"
