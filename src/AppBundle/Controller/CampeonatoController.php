@@ -9,16 +9,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 
 /**
  * Campeonato controller.
- *
- * @Route("admin/campeonato")
  */
 class CampeonatoController extends Controller
 {
     /**
      * Lists all campeonato entities.
-     *
-     * @Route("/", name="campeonato_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -33,9 +28,6 @@ class CampeonatoController extends Controller
 
     /**
      * Creates a new campeonato entity.
-     *
-     * @Route("/new", name="campeonato_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -48,7 +40,7 @@ class CampeonatoController extends Controller
             $em->persist($campeonato);
             $em->flush($campeonato);
 
-            return $this->redirectToRoute('campeonato_show', array('id' => $campeonato->getIdCamp()));
+            return $this->redirectToRoute('champ_show', array('id' => $campeonato->getIdCamp()));
         }
 
         return $this->render('campeonato/new.html.twig', array(
@@ -59,9 +51,6 @@ class CampeonatoController extends Controller
 
     /**
      * Finds and displays a campeonato entity.
-     *
-     * @Route("/{id}", name="campeonato_show")
-     * @Method("GET")
      */
     public function showAction(Campeonato $campeonato)
     {
@@ -75,9 +64,6 @@ class CampeonatoController extends Controller
 
     /**
      * Displays a form to edit an existing campeonato entity.
-     *
-     * @Route("/{id}/edit", name="campeonato_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Campeonato $campeonato)
     {
@@ -88,7 +74,7 @@ class CampeonatoController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('campeonato_edit', array('id' => $campeonato->getIdCamp()));
+            return $this->redirectToRoute('champ_edit', array('id' => $campeonato->getIdCamp()));
         }
 
         return $this->render('campeonato/edit.html.twig', array(
@@ -100,9 +86,7 @@ class CampeonatoController extends Controller
 
     /**
      * Deletes a campeonato entity.
-     *
-     * @Route("/{id}", name="campeonato_delete")
-     * @Method("DELETE")
+
      */
     public function deleteAction(Request $request, Campeonato $campeonato)
     {
@@ -115,7 +99,7 @@ class CampeonatoController extends Controller
             $em->flush($campeonato);
         }
 
-        return $this->redirectToRoute('campeonato_index');
+        return $this->redirectToRoute('champ_index');
     }
 
     /**
@@ -128,7 +112,7 @@ class CampeonatoController extends Controller
     private function createDeleteForm(Campeonato $campeonato)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('campeonato_delete', array('id' => $campeonato->getIdCamp())))
+            ->setAction($this->generateUrl('champ_delete', array('id' => $campeonato->getIdCamp())))
             ->setMethod('DELETE')
             ->getForm()
         ;

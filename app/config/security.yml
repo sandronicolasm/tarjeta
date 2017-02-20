@@ -6,8 +6,8 @@ security:
 
     role_hierarchy:
         ROLE_USER:        ROLE_USER
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
 
     providers:
         fos_userbundle:
@@ -37,7 +37,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/calendario, role: ROLE_USER }
         - { path: ^/admin/, role:   ROLE_ADMIN }
-        - { path: ^/super/, role:   ROLE_SUPER_ADMIN }
+        - { path: ^/admin-s/, role:   ROLE_SUPER_ADMIN }
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
 
     providers:
