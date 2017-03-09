@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-02-2017 a las 11:12:10
+-- Tiempo de generación: 09-03-2017 a las 18:06:47
 -- Versión del servidor: 5.7.17-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.13-0ubuntu0.16.04.1
+-- Versión de PHP: 7.0.15-0ubuntu0.16.04.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -137,6 +137,7 @@ INSERT INTO `ciudad` (`id_ciud`, `name_ciud`, `code`, `id_prov`) VALUES
 
 CREATE TABLE `complejo` (
   `id_comp` int(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
   `name_comp` varchar(255) NOT NULL,
   `dire_comp` varchar(255) NOT NULL,
   `phon_comp` int(11) DEFAULT NULL,
@@ -150,13 +151,13 @@ CREATE TABLE `complejo` (
 -- Volcado de datos para la tabla `complejo`
 --
 
-INSERT INTO `complejo` (`id_comp`, `name_comp`, `dire_comp`, `phon_comp`, `mail_comp`, `descrip_comp`, `url_comp`, `timestamp`) VALUES
-(1, 'El Aguila', 'Rio Negro 584', 358458673, 'aguila@gmail.com', 'Complejo de canchas de futbol de pasto sintetico techadas o al aire libre, para 5, 7 o 9 jugadores', 'http://www.futbolmadero.com.ar/fotos/alta/foto012.jpg', '2016-11-22 20:00:44'),
-(2, 'Trewa', 'Cordoba 210', 358467323, 'trewa@gmail.com', 'Canchas de futbol de pasto sintetico para 5 jugadores. Techadas y al aire libre', 'http://www.futbolmadero.com.ar/fotos/alta/foto008.jpg', '2016-11-22 20:00:47'),
-(3, 'Campo Verde', 'Ruta 158 Km 110', 358419538, 'campoverde@gmail.com', 'Canchas de pasto sintetico para 7 jugadores.', 'http://www.futbolmadero.com.ar/fotos/alta/foto009.jpg', '2016-11-22 20:00:50'),
-(4, 'Abasto Futbol', 'Obispo Buteler 1289', 358593726, 'abastofutbol@hotmail.com', 'Canchas con pasto sintetico para 7 jugadores', 'http://www.futbolmadero.com.ar/fotos/alta/foto043.jpg', '2016-11-22 20:00:54'),
-(5, 'Super 7', 'Avenida Sabattini 1264', 358419393, 'super7@gmail.com', 'Canchas de 7 o 5 jugadores, de pasto sintetico al aire libre', 'http://www.lacancha.pe/wp-content/uploads/2014/09/IMG_2964-850x566.jpg', '2016-11-22 20:01:01'),
-(6, 'Roja Directa', 'Bolivar 934', 358499985, 'rojadirecta@hotmail.com', 'Canchas techadas de pasto sintetico para 5 jugadores', 'http://www.futbolvieytes.com.ar/nuevas/foto008.jpg', '2016-11-22 20:01:03');
+INSERT INTO `complejo` (`id_comp`, `id_user`, `name_comp`, `dire_comp`, `phon_comp`, `mail_comp`, `descrip_comp`, `url_comp`, `timestamp`) VALUES
+(1, 4, 'El Aguila', 'Rio Negro 584', 358458673, 'aguila@gmail.com', 'Complejo de canchas de futbol de pasto sintetico techadas o al aire libre, para 5, 7 o 9 jugadores', 'http://www.futbolmadero.com.ar/fotos/alta/foto012.jpg', '2016-11-22 20:00:44'),
+(2, NULL, 'Trewa', 'Cordoba 210', 358467323, 'trewa@gmail.com', 'Canchas de futbol de pasto sintetico para 5 jugadores. Techadas y al aire libre', 'http://www.futbolmadero.com.ar/fotos/alta/foto008.jpg', '2016-11-22 20:00:47'),
+(3, NULL, 'Campo Verde', 'Ruta 158 Km 110', 358419538, 'campoverde@gmail.com', 'Canchas de pasto sintetico para 7 jugadores.', 'http://www.futbolmadero.com.ar/fotos/alta/foto009.jpg', '2016-11-22 20:00:50'),
+(4, NULL, 'Abasto Futbol', 'Obispo Buteler 1289', 358593726, 'abastofutbol@hotmail.com', 'Canchas con pasto sintetico para 7 jugadores', 'http://www.futbolmadero.com.ar/fotos/alta/foto043.jpg', '2016-11-22 20:00:54'),
+(5, NULL, 'Super 7', 'Avenida Sabattini 1264', 358419393, 'super7@gmail.com', 'Canchas de 7 o 5 jugadores, de pasto sintetico al aire libre', 'http://www.lacancha.pe/wp-content/uploads/2014/09/IMG_2964-850x566.jpg', '2016-11-22 20:01:01'),
+(6, NULL, 'Roja Directa', 'Bolivar 934', 358499985, 'rojadirecta@hotmail.com', 'Canchas techadas de pasto sintetico para 5 jugadores', 'http://www.futbolvieytes.com.ar/nuevas/foto008.jpg', '2016-11-22 20:01:03');
 
 -- --------------------------------------------------------
 
@@ -287,7 +288,7 @@ CREATE TABLE `fos_user` (
   `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `last_login` datetime DEFAULT NULL,
-  `locked` tinyint(1) NOT NULL,
+  `locked` tinyint(1) DEFAULT NULL,
   `expires_at` datetime DEFAULT NULL,
   `confirmation_token` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password_requested_at` datetime DEFAULT NULL,
@@ -297,18 +298,18 @@ CREATE TABLE `fos_user` (
   `dni_user` int(11) NOT NULL,
   `fnac_user` date DEFAULT NULL,
   `dire_user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phon_user` int(11) DEFAULT NULL,
-  `id_comp` int(255) DEFAULT NULL
+  `phon_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `fos_user`
 --
 
-INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expire_at`, `name_user`, `dni_user`, `fnac_user`, `dire_user`, `phon_user`, `id_comp`) VALUES
-(1, 'SANDRO', 'sandro', 'sandro1991@hotmail.com.ar', 'sandro1991@hotmail.com.ar', 1, 'pn5q9jfrntwwgowk8oswoc0ss8040cc', '$2y$13$2n/jVeJ5x6x2ob0K516wEeLeQ3Dl.vzB4nNvTlhN.rBkLUO.VYNZK', '2017-02-20 11:09:39', 0, NULL, NULL, NULL, 'a:1:{i:0;s:10:"ROLE_ADMIN";}', NULL, '', 0, NULL, NULL, NULL, NULL),
-(2, 'pepe', 'pepe', 'dvdnvie@krirng.com', 'dvdnvie@krirng.com', 1, 'skmnbkatsg0w80wscc8wkgw4gs40gws', '$2y$13$U.SevRrUqdgDSmTtGUCILeRfDY60TC7b4a3QmflK6oeIsyzsX6Nq6', '2016-12-06 14:56:13', 0, NULL, NULL, NULL, 'a:0:{}', NULL, 'pepito', 354234646, '2011-01-01', 'suipacha 500', 35757838, NULL),
-(3, 'admin', 'admin', 'admin@admin.com', 'admin@admin.com', 1, 'fryfoq4136gc8okssko8c4socg0g44k', '$2y$13$pJhZk.wYfzskFUKtFzGIsOooMc5YsQ.7lMjblgUIbzOhA.qDENXG6', '2017-02-20 10:54:53', 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', NULL, 'administrador', 3525353, '2016-09-18', 'sobremonte 1000', 353667377, NULL);
+INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expire_at`, `name_user`, `dni_user`, `fnac_user`, `dire_user`, `phon_user`) VALUES
+(1, 'SANDRO', 'sandro', 'sandro1991@hotmail.com.ar', 'sandro1991@hotmail.com.ar', 1, 'pn5q9jfrntwwgowk8oswoc0ss8040cc', '$2y$13$2n/jVeJ5x6x2ob0K516wEeLeQ3Dl.vzB4nNvTlhN.rBkLUO.VYNZK', '2017-02-20 20:12:53', 0, NULL, NULL, NULL, 'a:1:{i:0;s:10:"ROLE_ADMIN";}', NULL, '', 0, NULL, NULL, NULL),
+(2, 'pepe', 'pepe', 'dvdnvie@krirng.com', 'dvdnvie@krirng.com', 1, 'skmnbkatsg0w80wscc8wkgw4gs40gws', '$2y$13$U.SevRrUqdgDSmTtGUCILeRfDY60TC7b4a3QmflK6oeIsyzsX6Nq6', '2016-12-06 14:56:13', 0, NULL, NULL, NULL, 'a:0:{}', NULL, 'pepito', 354234646, '2011-01-01', 'suipacha 500', 35757838),
+(3, 'admin', 'admin', 'admin@admin.com', 'admin@admin.com', 1, 'fryfoq4136gc8okssko8c4socg0g44k', '$2y$13$pJhZk.wYfzskFUKtFzGIsOooMc5YsQ.7lMjblgUIbzOhA.qDENXG6', '2017-03-02 11:47:25', 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', NULL, 'administrador', 3525353, '2016-09-18', 'sobremonte 1000', 353667377),
+(4, 'superadmin', 'superadmin', 'super@super.com', 'super@super.com', 1, 'HSRnZCtvG3VUPwH58XbOqDAqc1sgSJ.ZRIGCPBjbIXM', '2Gael8ErbKKQTQwHB1Il6RGHzwLTtlmInDnEctlsMeL68oCKqnZsPYPw4Oq4UiVBZ5z1iythe/ct4/RaydnR4A==', '2017-03-09 18:01:02', NULL, NULL, 'UM9oE7Dfv1HrpItw3lnSO5dGbMtRLtIVg0QyK_RS9JU', NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', NULL, 'super admin', 35553211, '2014-03-06', 'sabatini 1000', 3529459);
 
 -- --------------------------------------------------------
 
@@ -548,7 +549,8 @@ ALTER TABLE `ciudad`
 -- Indices de la tabla `complejo`
 --
 ALTER TABLE `complejo`
-  ADD PRIMARY KEY (`id_comp`);
+  ADD PRIMARY KEY (`id_comp`),
+  ADD KEY `id_user` (`id_user`) USING BTREE;
 
 --
 -- Indices de la tabla `comp_redes`
@@ -693,7 +695,7 @@ ALTER TABLE `fecha`
 -- AUTO_INCREMENT de la tabla `fos_user`
 --
 ALTER TABLE `fos_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `foto`
 --
@@ -767,6 +769,12 @@ ALTER TABLE `cancha`
 --
 ALTER TABLE `ciudad`
   ADD CONSTRAINT `FK_Ciudad_Provincia` FOREIGN KEY (`id_prov`) REFERENCES `provincia` (`id_prov`);
+
+--
+-- Filtros para la tabla `complejo`
+--
+ALTER TABLE `complejo`
+  ADD CONSTRAINT `FK_user_complejo` FOREIGN KEY (`id_user`) REFERENCES `fos_user` (`id`);
 
 --
 -- Filtros para la tabla `comp_redes`
