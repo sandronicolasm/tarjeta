@@ -88,6 +88,7 @@ fos_user:
             type: AppBundle\Form\ProfileFormType
     use_username_form_type: false
 
+
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
     mappings:
