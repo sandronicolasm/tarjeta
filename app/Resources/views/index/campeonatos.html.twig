@@ -6,10 +6,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-header">Últimos Campeonatos Disponibles</h1>
+                <h1 class="page-header">{% trans %} last {% endtrans %} {%trans %} champ_title{% endtrans %}</h1>
                 <ol class="breadcrumb">
-                    <li><a href="{{ path('app_default') }}">Home</a></li>
-                    <li class="active">Campeonatos</li>
+                    <li><a href="{{ path('app_default') }}">{% trans %} home {% endtrans %}</a></li>
+                    <li class="active">{% trans %} champ {% endtrans %}</li>
                 </ol>
             </div>
         </div>
@@ -25,20 +25,20 @@
                     </div>
                     <div class="col-md-6" >
                         <h3>{{ campeonato.nameCamp }}</h3>
-                        <p>Organizado por: {{ campeonato.idComp }}</p>
-                        <p>Inicio:  {{ campeonato.fechInic | date("d/m/Y") }}   Final: {{ campeonato.fechFina | date("d/m/Y") }}</p>
+                        <p>{% trans %} champ_orga_by {% endtrans %}: {{ campeonato.idComp }}</p>
+                        <p>{% trans %} start {% endtrans %}:  {{ campeonato.fechInic | date("d/m/Y") }}   {% trans %} final {% endtrans %}: {{ campeonato.fechFina | date("d/m/Y") }}</p>
                         <p>{{ campeonato.descCamp }}</p>
-                        <p>Precio Inscripción: $ {{ campeonato.precInsc }}</p>
+                        <p>{% trans %} price_reg {% endtrans %}: $ {{ campeonato.precInsc }}</p>
                     </div>
                 </div>
             </div>
         {% endfor %}
         <ul class="pager">
             <li class="previous">
-                <a href="#">&larr; Anterior</a>
+                <a href="#">&larr; {% trans %} back {% endtrans %}</a>
             </li>
             <li class="next">
-                <a href="#">Siguiente &rarr;</a>
+                <a href="#">{% trans %} next {% endtrans %}&rarr;</a>
             </li>
         </ul>
         <hr>

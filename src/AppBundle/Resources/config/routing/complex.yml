@@ -1,0 +1,24 @@
+complex_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Complejo:index" }
+    methods:  GET
+
+complex_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Complejo:show" }
+    methods:  GET
+
+complex_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Complejo:new" }
+    methods:  [GET, POST]
+
+complex_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Complejo:edit" }
+    methods:  [GET, POST]
+
+complex_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Complejo:delete" }
+    methods:  DELETE

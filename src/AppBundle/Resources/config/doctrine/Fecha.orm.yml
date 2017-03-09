@@ -1,0 +1,21 @@
+AppBundle\Entity\Fecha:
+    type: entity
+    table: fecha
+    id:
+        idFech:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_fech
+            generator:
+                strategy: IDENTITY
+    fields:
+        fecha:
+            type: date
+            nullable: true
+        timestamp:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks: {  }

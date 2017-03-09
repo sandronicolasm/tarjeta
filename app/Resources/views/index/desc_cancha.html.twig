@@ -17,8 +17,8 @@
                     <h1 class="page-header">
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="{{ path('homepage') }}">Home</a></li>
-                        <li><a href="{{ path('complejosIndex')}}">Complejos</a></li>
+                        <li><a href="{{ path('app_default') }}">Home</a></li>
+                        <li><a href="{{ path('complex_index')}}">Complejos</a></li>
                         <li class="active">Descripción</li>
                     </ol>
                 </div>
@@ -33,10 +33,10 @@
                     <h2>{{ descri.name_comp }}</h2>
                     <p>{{ descri.descrip_comp }}</p>
                     <p>Dirección: {{ descri.dire_comp }}</p>
-                    <p>Teléfono: {{ descri.phon_comp }} - Email: {{ descri.mail_comp }}</p>
+                    <p>Teléfono: {{ descri.phon_comp }}</p>
+                    <p>Email: {{ descri.mail_comp }}</p>
                     <p>Servicio Disponible: </p>
-                    <p>{{ descri.name_serv }}</p>
-                    <p>{{ descri.prec_serv }}</p>
+                    <p>{{ descri.name_serv }} : $ {{ descri.prec_serv }}</p>
                     <ul class="list-inline" >
                         <li><a href="http://face.link_rede" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a>
                         </li>
@@ -49,7 +49,6 @@
             </div>
             <div class="pull-right">
                 <p><a class='iframe btn btn-primary' href='{{asset('calendario/calendario/calendario.html')}}'>Hacer Reserva</a></p>
-                <p><a class='btn btn-primary' href='{{ path('send_email') }}'>Solicitar Confirmación</a></p>
             </div>
 
 

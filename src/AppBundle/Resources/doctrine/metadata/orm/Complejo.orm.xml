@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Complejo" table="complejo">
+    <indexes>
+      <index name="id_user" columns="id_user"/>
+    </indexes>
+    <id name="idComp" type="integer" column="id_comp">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nameComp" type="string" column="name_comp" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="direComp" type="string" column="dire_comp" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="phonComp" type="integer" column="phon_comp" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="mailComp" type="string" column="mail_comp" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="descripComp" type="string" column="descrip_comp" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="urlComp" type="string" column="url_comp" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="timestamp" type="datetime" column="timestamp" nullable="true"/>
+    <many-to-one field="idUser" target-entity="FosUser" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idRede" target-entity="Redes" inversed-by="idComp" fetch="LAZY">
+      <join-table name="comp_redes">
+        <join-columns>
+          <join-column name="id_comp" referenced-column-name="id_comp"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_rede" referenced-column-name="id_rede"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="idServ" target-entity="Servicio" inversed-by="idComp" fetch="LAZY">
+      <join-table name="comp_serv">
+        <join-columns>
+          <join-column name="id_comp" referenced-column-name="id_comp"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_serv" referenced-column-name="id_Serv"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

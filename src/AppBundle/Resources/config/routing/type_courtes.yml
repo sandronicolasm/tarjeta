@@ -1,0 +1,24 @@
+type_courtes_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Tcancha:index" }
+    methods:  GET
+
+type_courtes_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Tcancha:show" }
+    methods:  GET
+
+type_courtes_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Tcancha:new" }
+    methods:  [GET, POST]
+
+type_courtes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Tcancha:edit" }
+    methods:  [GET, POST]
+
+type_courtes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Tcancha:delete" }
+    methods:  DELETE

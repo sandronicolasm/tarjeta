@@ -18,7 +18,8 @@ class IndexController extends Controller
 
     public function langAction(Request $request)
     {
-        return $this->redirectToRoute('app_default');
+
+        return $this->redirectToRoute('app_default', array($request));
     }
 
     public function campAction()
@@ -48,17 +49,6 @@ class IndexController extends Controller
 
     public function desc_canchaAction($id)
     {
-//
-//        $descrip = $this->getDoctrine()
-//            ->getRepository('AppBundle:Complejo')
-//            ->find($id);
-//
-//
-//        if (!$descrip) {
-//            throw $this->createNotFoundException(
-//                'No product found for id '.$id
-//            );
-//        }
         $em = $this->getDoctrine()->getEntityManager();
         $db = $em->getConnection();
         $query = "SELECT * FROM comp_serv INNER JOIN complejo ON comp_serv.id_comp = complejo.id_comp INNER JOIN servicio ON comp_serv.id_serv = servicio.id_serv WHERE comp_serv.id_comp = ".$id;
