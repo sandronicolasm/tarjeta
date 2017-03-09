@@ -1,0 +1,75 @@
+AppBundle\Entity\Cancha:
+    type: entity
+    table: cancha
+    indexes:
+        IDX_9D09C782DF6812DC:
+            columns:
+                - id_capa
+        IDX_9D09C782402A7338:
+            columns:
+                - id_comp
+        IDX_9D09C782FB0D0145:
+            columns:
+                - id_tipo
+    id:
+        idCanch:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_canch
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameCanch:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: name_canch
+        cubi:
+            type: boolean
+            nullable: true
+        precCanch:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: prec_canch
+        timestamp:
+            type: datetime
+            nullable: true
+    manyToOne:
+        idCapa:
+            targetEntity: Capacidad
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_capa:
+                    referencedColumnName: id_capa
+            orphanRemoval: false
+        idComp:
+            targetEntity: Complejo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_comp:
+                    referencedColumnName: id_comp
+            orphanRemoval: false
+        idTipo:
+            targetEntity: Tcancha
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tipo:
+                    referencedColumnName: id_tipo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

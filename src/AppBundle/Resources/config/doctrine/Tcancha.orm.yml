@@ -1,0 +1,29 @@
+AppBundle\Entity\Tcancha:
+    type: entity
+    table: tcancha
+    uniqueConstraints:
+        UQ_Tcancha_id_tipo:
+            columns:
+                - id_tipo
+        UQ_Tcancha_name_tipo:
+            columns:
+                - name_tipo
+    id:
+        idTipo:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_tipo
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameTipo:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: name_tipo
+    lifecycleCallbacks: {  }

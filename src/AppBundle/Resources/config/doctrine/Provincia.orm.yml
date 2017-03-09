@@ -1,0 +1,22 @@
+AppBundle\Entity\Provincia:
+    type: entity
+    table: provincia
+    id:
+        idProv:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_prov
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameProv:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: name_prov
+    lifecycleCallbacks: {  }

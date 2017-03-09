@@ -1,0 +1,68 @@
+AppBundle\Entity\Campeonato:
+    type: entity
+    table: campeonato
+    indexes:
+        IDX_722DB8CA402A7338:
+            columns:
+                - id_comp
+    id:
+        idCamp:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_camp
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameCamp:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: name_camp
+        fechInic:
+            type: date
+            nullable: true
+            column: fech_inic
+        fechFina:
+            type: date
+            nullable: true
+            column: fech_fina
+        precInsc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: prec_insc
+        descCamp:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: desc_camp
+        timestamp:
+            type: datetime
+            nullable: true
+        urlFoto:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: url_foto
+    manyToOne:
+        idComp:
+            targetEntity: Complejo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_comp:
+                    referencedColumnName: id_comp
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
