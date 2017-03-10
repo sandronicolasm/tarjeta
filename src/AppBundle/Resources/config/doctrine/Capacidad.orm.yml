@@ -1,0 +1,20 @@
+AppBundle\Entity\Capacidad:
+    type: entity
+    table: capacidad
+    id:
+        idCapa:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_capa
+            generator:
+                strategy: IDENTITY
+    fields:
+        capa:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Reserva" table="reserva">
+    <indexes>
+      <index name="id_canch" columns="id_canch"/>
+      <index name="id_usua" columns="id_usua"/>
+      <index name="id_hofe" columns="id_hofe"/>
+    </indexes>
+    <id name="idRese" type="integer" column="id_rese">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="timestamp" type="datetime" column="timestamp" nullable="true"/>
+    <many-to-one field="idCanch" target-entity="Cancha" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_canch" referenced-column-name="id_canch"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idHofe" target-entity="HoraFecha" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_hofe" referenced-column-name="id_hofe"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUsua" target-entity="FosUser" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_usua" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

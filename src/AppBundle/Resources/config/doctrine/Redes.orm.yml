@@ -1,0 +1,31 @@
+AppBundle\Entity\Redes:
+    type: entity
+    table: redes
+    id:
+        idRede:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_rede
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameRede:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: name_rede
+    manyToMany:
+        idComp:
+            targetEntity: Complejo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: idRede
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

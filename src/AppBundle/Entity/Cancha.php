@@ -2,83 +2,50 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Cancha
- *
- * @ORM\Table(name="cancha")
- * @ORM\Entity
  */
 class Cancha
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_canch", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idCanch;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name_canch", type="string", length=255, nullable=true)
      */
     private $nameCanch;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="cubi", type="boolean", nullable=true)
      */
     private $cubi;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="prec_canch", type="integer", nullable=true)
      */
     private $precCanch;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=true)
      */
     private $timestamp;
 
     /**
      * @var \AppBundle\Entity\Capacidad
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Capacidad")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_capa", referencedColumnName="id_capa")
-     * })
      */
     private $idCapa;
 
     /**
      * @var \AppBundle\Entity\Complejo
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Complejo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_comp", referencedColumnName="id_comp")
-     * })
      */
     private $idComp;
 
     /**
      * @var \AppBundle\Entity\Tcancha
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tcancha")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_tipo", referencedColumnName="id_tipo")
-     * })
      */
     private $idTipo;
-
 
 
     /**
@@ -101,7 +68,7 @@ class Cancha
     public function setNameCanch($nameCanch)
     {
         $this->nameCanch = $nameCanch;
-    
+
         return $this;
     }
 
@@ -125,7 +92,7 @@ class Cancha
     public function setCubi($cubi)
     {
         $this->cubi = $cubi;
-    
+
         return $this;
     }
 
@@ -149,7 +116,7 @@ class Cancha
     public function setPrecCanch($precCanch)
     {
         $this->precCanch = $precCanch;
-    
+
         return $this;
     }
 
@@ -173,7 +140,7 @@ class Cancha
     public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
-    
+
         return $this;
     }
 
@@ -197,7 +164,7 @@ class Cancha
     public function setIdCapa(\AppBundle\Entity\Capacidad $idCapa = null)
     {
         $this->idCapa = $idCapa;
-    
+
         return $this;
     }
 
@@ -221,7 +188,7 @@ class Cancha
     public function setIdComp(\AppBundle\Entity\Complejo $idComp = null)
     {
         $this->idComp = $idComp;
-    
+
         return $this;
     }
 
@@ -245,7 +212,7 @@ class Cancha
     public function setIdTipo(\AppBundle\Entity\Tcancha $idTipo = null)
     {
         $this->idTipo = $idTipo;
-    
+
         return $this;
     }
 
@@ -259,3 +226,4 @@ class Cancha
         return $this->idTipo;
     }
 }
+

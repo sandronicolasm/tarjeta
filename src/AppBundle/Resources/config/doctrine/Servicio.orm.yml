@@ -1,0 +1,37 @@
+AppBundle\Entity\Servicio:
+    type: entity
+    table: servicio
+    id:
+        idServ:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_Serv
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameServ:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: name_serv
+        precServ:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: prec_serv
+    manyToMany:
+        idComp:
+            targetEntity: Complejo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: idServ
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

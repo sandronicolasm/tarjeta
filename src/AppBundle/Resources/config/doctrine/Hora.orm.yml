@@ -1,0 +1,18 @@
+AppBundle\Entity\Hora:
+    type: entity
+    table: hora
+    id:
+        idHora:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_hora
+            generator:
+                strategy: IDENTITY
+    fields:
+        hora:
+            type: time
+            nullable: true
+    lifecycleCallbacks: {  }

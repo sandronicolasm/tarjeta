@@ -2,63 +2,48 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use Symfony\Component\Validator\Constraints as Assert;
 
-/**
+ /**
  * FosUser
- *
- * @ORM\Table(name="fos_user")
- * @ORM\Entity
  */
-class User extends BaseUser
+class FosUser extends BaseUser
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    protected $id;
-
-
-    /**
      * @var string
-     *
-     * @ORM\Column(name="name_user", type="string", length=255, nullable=false)
-     *
      */
     protected $nameUser;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="dni_user", type="integer", nullable=false)
      */
     protected $dniUser;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fnac_user", type="date", nullable=true)
      */
     protected $fnacUser;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="dire_user", type="string", length=255, nullable=true)
      */
     protected $direUser;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="phon_user", type="integer", nullable=true)
      */
     protected $phonUser;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
     /**
@@ -66,7 +51,7 @@ class User extends BaseUser
      *
      * @param string $nameUser
      *
-     * @return User
+     * @return FosUser
      */
     public function setNameUser($nameUser)
     {
@@ -90,7 +75,7 @@ class User extends BaseUser
      *
      * @param integer $dniUser
      *
-     * @return User
+     * @return FosUser
      */
     public function setDniUser($dniUser)
     {
@@ -114,7 +99,7 @@ class User extends BaseUser
      *
      * @param \DateTime $fnacUser
      *
-     * @return User
+     * @return FosUser
      */
     public function setFnacUser($fnacUser)
     {
@@ -138,7 +123,7 @@ class User extends BaseUser
      *
      * @param string $direUser
      *
-     * @return User
+     * @return FosUser
      */
     public function setDireUser($direUser)
     {
@@ -162,7 +147,7 @@ class User extends BaseUser
      *
      * @param integer $phonUser
      *
-     * @return User
+     * @return FosUser
      */
     public function setPhonUser($phonUser)
     {
@@ -180,16 +165,5 @@ class User extends BaseUser
     {
         return $this->phonUser;
     }
-
-    public function __construct()
-    {
-        parent::__construct();
-
-    }
-
-    public function __toString()
-    {
-
-        return (string)$this->fnacUser;
-    }
 }
+

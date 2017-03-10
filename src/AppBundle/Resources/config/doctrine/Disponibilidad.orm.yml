@@ -1,0 +1,39 @@
+AppBundle\Entity\Disponibilidad:
+    type: entity
+    table: disponibilidad
+    id:
+        idDisp:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_disp
+            generator:
+                strategy: IDENTITY
+    fields:
+        idDia:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_dia
+        idApertura:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_apertura
+        idCierre:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_cierre
+        idComp:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_comp
+    lifecycleCallbacks: {  }
