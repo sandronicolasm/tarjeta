@@ -1,0 +1,23 @@
+index_champ:
+    path:     /list/index/{id}
+    defaults: { _controller: AppBundle:Champ:index }
+
+index_champ_show:
+    path:     /list/{id}/show
+    defaults: { _controller: "AppBundle:Champ:show" }
+    methods:  GET
+
+index_champ_new:
+    path:     /list/new/{id}
+    defaults: { _controller: "AppBundle:Champ:new" }
+    methods:  [GET, POST]
+
+index_champ_edit:
+    path:     /list/{id}/edit
+    defaults: { _controller: "AppBundle:Champ:edit" }
+    methods:  [GET, POST]
+
+index_champ_delete:
+    path:     /list/{id}/delete
+    defaults: { _controller: "AppBundle:Champ:delete" }
+    methods:  DELETE

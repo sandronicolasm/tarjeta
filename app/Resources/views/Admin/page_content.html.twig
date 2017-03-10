@@ -14,11 +14,11 @@
         </ol>
     </section>
     <section class="content">
-        <h1> Bienvenido al Administrador de tarjetaroja.com</h1>
-        <h4> Seleccione una Lista para Ver</h4>
-        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Complejos</a>
+        <h1> Complejo {{ lista_compl.name_comp }}</h1>
+        <h4> Seleccione un Listado</h4>
+        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Campeonatos</a>
         <ul>
-            <li><a href="{{ path('complex_index') }}">Listado</a></li>
+            <li><a href="{{ path('index_champ', { 'id' : lista_compl.id_comp }) }}">Listado</a></li>
             <li><a href="{{ path('courtes_index') }}">Canchas</a></li>
             <li><a href="{{ path('type_courtes_index') }}">Tipo de Canchas</a></li>
         </ul>

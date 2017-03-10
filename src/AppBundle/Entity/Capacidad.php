@@ -52,4 +52,3 @@ class Capacidad
         return $this->capa;
     }
 }
-

@@ -166,3 +166,4 @@ class FosUser extends BaseUser
         return $this->phonUser;
     }
 }
+

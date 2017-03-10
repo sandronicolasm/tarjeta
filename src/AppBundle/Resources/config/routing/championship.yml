@@ -22,3 +22,5 @@ champ_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:Campeonato:delete" }
     methods:  DELETE
+
+

@@ -226,4 +226,3 @@ class Cancha
         return $this->idTipo;
     }
 }
-
