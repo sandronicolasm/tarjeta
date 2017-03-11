@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Redes" table="redes">
+    <id name="idRede" type="integer" column="id_rede">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nameRede" type="string" column="name_rede" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-many field="idComp" target-entity="Complejo" mapped-by="idRede" fetch="LAZY"/>
+  </entity>
+</doctrine-mapping>

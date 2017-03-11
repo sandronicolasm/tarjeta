@@ -1,0 +1,42 @@
+AppBundle\Entity\Ciudad:
+    type: entity
+    table: ciudad
+    indexes:
+        IDX_8E86059ECD2D7CDD:
+            columns:
+                - id_prov
+    id:
+        idCiud:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_ciud
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameCiud:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: name_ciud
+        code:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        idProv:
+            targetEntity: Provincia
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_prov:
+                    referencedColumnName: id_prov
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

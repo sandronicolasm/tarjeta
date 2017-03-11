@@ -2,43 +2,28 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Servicio
- *
- * @ORM\Table(name="servicio")
- * @ORM\Entity
  */
 class Servicio
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_Serv", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idServ;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name_serv", type="string", length=255, nullable=false)
      */
     private $nameServ;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="prec_serv", type="integer", nullable=false)
      */
     private $precServ;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Complejo", mappedBy="idServ")
      */
     private $idComp;
 
@@ -49,7 +34,6 @@ class Servicio
     {
         $this->idComp = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Get idServ
@@ -71,7 +55,7 @@ class Servicio
     public function setNameServ($nameServ)
     {
         $this->nameServ = $nameServ;
-    
+
         return $this;
     }
 
@@ -95,7 +79,7 @@ class Servicio
     public function setPrecServ($precServ)
     {
         $this->precServ = $precServ;
-    
+
         return $this;
     }
 
@@ -119,7 +103,7 @@ class Servicio
     public function addIdComp(\AppBundle\Entity\Complejo $idComp)
     {
         $this->idComp[] = $idComp;
-    
+
         return $this;
     }
 
@@ -141,11 +125,5 @@ class Servicio
     public function getIdComp()
     {
         return $this->idComp;
-    }
-
-    public function __toString()
-    {
-
-        return (string)$this->nameServ;
     }
 }

@@ -1,0 +1,59 @@
+AppBundle\Entity\Reserva:
+    type: entity
+    table: reserva
+    indexes:
+        id_canch:
+            columns:
+                - id_canch
+        id_usua:
+            columns:
+                - id_usua
+        id_hofe:
+            columns:
+                - id_hofe
+    id:
+        idRese:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_rese
+            generator:
+                strategy: IDENTITY
+    fields:
+        timestamp:
+            type: datetime
+            nullable: true
+    manyToOne:
+        idCanch:
+            targetEntity: Cancha
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_canch:
+                    referencedColumnName: id_canch
+            orphanRemoval: false
+        idHofe:
+            targetEntity: HoraFecha
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_hofe:
+                    referencedColumnName: id_hofe
+            orphanRemoval: false
+        idUsua:
+            targetEntity: FosUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_usua:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

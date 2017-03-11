@@ -1,0 +1,57 @@
+AppBundle\Entity\Foto:
+    type: entity
+    table: foto
+    indexes:
+        id_camp:
+            columns:
+                - id_camp
+        id_comp:
+            columns:
+                - id_comp
+    id:
+        idFoto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_foto
+            generator:
+                strategy: IDENTITY
+    fields:
+        imagename:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: imageName
+        updatedat:
+            type: datetime
+            nullable: true
+            column: updatedAt
+        timestamp:
+            type: datetime
+            nullable: true
+    manyToOne:
+        idCamp:
+            targetEntity: Campeonato
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_camp:
+                    referencedColumnName: id_camp
+            orphanRemoval: false
+        idComp:
+            targetEntity: Complejo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_comp:
+                    referencedColumnName: id_comp
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

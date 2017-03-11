@@ -16,7 +16,7 @@
         <div class="hpanel hred">
             <div class="panel-heading">
                 <h3>Lista de Campeonato</h3>
-                <a href="{{ path('campeonato_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+                <a href="{{ path('champ_index') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
             </div>
 
             <div class="panel-body">
@@ -35,14 +35,13 @@
                         <tbody>
                         {% for campeonato in campeonatos %}
                             <tr>
-                                <td class="hidden"><a href="{{ path('campeonato_show', { 'id': campeonato.idCamp }) }}">{{ campeonato.idCamp }}</a></td>
+                                <td class="hidden"><a href="{{ path('champ_show', { 'id': campeonato.idCamp }) }}">{{ campeonato.idCamp }}</a></td>
                                 <td>{{ campeonato.nameCamp }}</td>
                                 <td>{% if campeonato.fechInic %}{{ campeonato.fechInic|date('Y-m-d') }}{% endif %}</td>
                                 <td>{% if campeonato.fechFina %}{{ campeonato.fechFina|date('Y-m-d') }}{% endif %}</td>
                                 <td>{{ campeonato.precInsc }}</td>
                                 <td class="tools">
-                                    <a href="{{ path('campeonato_show', { 'id': campeonato.idCamp }) }}"><i class="fa fa-edit fa-2x"></i> </a>
-                                    <a href="{{ path('campeonato_edit', { 'id': campeonato.idCamp }) }}"><i class="fa fa-trash-o fa-2x"></i> </a>
+                                    <a href="{{ path('champ_show', { 'id': campeonato.idCamp }) }}"><i class="fa fa-edit fa-2x"></i> </a>
                                 </td>
 
                             </tr>
