@@ -2,32 +2,20 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Hora
- *
- * @ORM\Table(name="hora")
- * @ORM\Entity
  */
 class Hora
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_hora", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idHora;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="hora", type="time", nullable=true)
      */
     private $hora;
-
 
 
     /**
@@ -50,7 +38,7 @@ class Hora
     public function setHora($hora)
     {
         $this->hora = $hora;
-    
+
         return $this;
     }
 
@@ -64,3 +52,4 @@ class Hora
         return $this->hora;
     }
 }
+

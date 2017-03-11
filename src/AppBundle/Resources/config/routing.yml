@@ -1,3 +1,7 @@
+app_admin:
+    resource: "@AppBundle/Resources/config/routing/admin.yml"
+    prefix:   /admin-champ
+
 app_champ:
     resource: "@AppBundle/Resources/config/routing/championship.yml"
     prefix:   /championships
@@ -52,3 +56,5 @@ admin:
     path:     /admin
     defaults: {_controller: AppBundle:Admin:admin}
     methods: GET
+
+

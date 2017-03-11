@@ -52,4 +52,3 @@ class Tcancha
         return $this->nameTipo;
     }
 }
-

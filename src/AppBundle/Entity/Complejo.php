@@ -347,4 +347,3 @@ class Complejo
         // TODO: Implement __toString() method.
     }
 }
-

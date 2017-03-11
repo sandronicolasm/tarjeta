@@ -2,32 +2,20 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Provincia
- *
- * @ORM\Table(name="provincia")
- * @ORM\Entity
  */
 class Provincia
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_prov", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idProv;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name_prov", type="string", length=255, nullable=false)
      */
     private $nameProv;
-
 
 
     /**
@@ -50,7 +38,7 @@ class Provincia
     public function setNameProv($nameProv)
     {
         $this->nameProv = $nameProv;
-    
+
         return $this;
     }
 
@@ -64,3 +52,4 @@ class Provincia
         return $this->nameProv;
     }
 }
+

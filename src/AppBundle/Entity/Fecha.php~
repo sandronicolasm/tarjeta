@@ -2,39 +2,25 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Fecha
- *
- * @ORM\Table(name="fecha")
- * @ORM\Entity
  */
 class Fecha
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_fech", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idFech;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fecha", type="date", nullable=true)
      */
     private $fecha;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=true)
      */
     private $timestamp;
-
 
 
     /**
@@ -57,7 +43,7 @@ class Fecha
     public function setFecha($fecha)
     {
         $this->fecha = $fecha;
-    
+
         return $this;
     }
 
@@ -81,7 +67,7 @@ class Fecha
     public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
-    
+
         return $this;
     }
 
@@ -95,3 +81,4 @@ class Fecha
         return $this->timestamp;
     }
 }
+

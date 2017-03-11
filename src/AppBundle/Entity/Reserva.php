@@ -139,4 +139,3 @@ class Reserva
         return $this->idUsua;
     }
 }
-

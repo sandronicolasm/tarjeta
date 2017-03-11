@@ -98,4 +98,3 @@ class Redes
         return $this->idComp;
     }
 }
-
