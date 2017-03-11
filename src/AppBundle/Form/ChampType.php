@@ -33,7 +33,8 @@ class ChampType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Campeonato'
+            'data_class' => 'AppBundle\Entity\Campeonato',
+            'id_comp' => '2'
         ));
     }
 

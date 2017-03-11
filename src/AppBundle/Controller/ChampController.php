@@ -37,13 +37,14 @@ class ChampController extends Controller
     public function newAction(Request $request, $id)
     {
         $campeonato = new Campeonato();
+        $campeonato->setIdComp($id);
 
         $form = $this->createForm('AppBundle\Form\ChampType', $campeonato);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $campeonato -> setIdComp($id);
             $em = $this->getDoctrine()->getManager();
+
 
             $em->persist($campeonato);
             $em->flush($campeonato);
