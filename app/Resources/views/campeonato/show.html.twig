@@ -1,5 +1,53 @@
 {% extends 'base.html.twig' %}
 
+{% block aside %}
+    {{ parent() }}
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="{{ asset('img/user.jpg') }}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <h4>{{ app.user.username }}</h4>
+                </div>
+            </div>
+        </section>
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i>
+                        <span>Complejos</span>
+                        <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('complex_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                        <li><a href="{{ path('courtes_index') }}"><i class="fa fa-circle-o"></i> Canchas</a></li>
+                        <li><a href="{{ path('type_courtes_index') }}"><i class="fa fa-circle-o"></i> Tipo de Canchas</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i>
+                        <span>Campeonatos</span>
+                        <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+{% endblock %}
+
 {% block page_content %}
     <div class="content-wrapper">
         <section class="content-header">
@@ -8,7 +56,7 @@
                 <small>Panel de Control</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li class="active">Lista Campeonatos</li>
             </ol>
         </section>

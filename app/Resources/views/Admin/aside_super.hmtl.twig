@@ -1,7 +1,4 @@
-{% extends 'base.html.twig' %}
 
-{% block aside %}
-    {{ parent() }}
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -21,7 +18,7 @@
                     <a href="#">
                         <i class="fa fa-table"></i>
                         <span>Complejos</span>
-                        <span class="pull-right-container">
+                    <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
                     </a>
@@ -35,7 +32,7 @@
                     <a href="#">
                         <i class="fa fa-table"></i>
                         <span>Campeonatos</span>
-                        <span class="pull-right-container">
+                    <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
                     </a>
@@ -46,40 +43,3 @@
             </ul>
         </section>
     </aside>
-{% endblock %}
-
-{% block page_content %}
-    <div class="content-wrapper">
-        <section class="content-header">
-            <h1>
-                Campeonatos
-                <small>Panel de Control</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li class="active">Campeonatos</li>
-            </ol>
-        </section>
-        <section class="content">
-            <div class="hpanel hred">
-                <div class="panel-heading">
-                    <h3>{{ campeonato.nameCamp }}</h3>
-                </div>
-                <div class="panel-body">
-                    {{ form_start(edit_form) }}
-                    <div class="form-group col-sm-12">
-                        {{ form_widget(edit_form) }}
-                    </div>
-                    <div class="panel-footer text-center">
-                        <input type="submit" value="Guardar" class="btn btn-success col-sm-2"/>
-                        {{ form_end(edit_form) }}
-                        {{ form_start(delete_form) }}
-                        <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
-                        {{ form_end(delete_form) }}
-                        <a class="btn btn-default col-sm-2" href="{{ path('champ_index') }}" >Atrás</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-{% endblock %}
