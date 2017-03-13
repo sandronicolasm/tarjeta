@@ -11,6 +11,8 @@ index_champ_new:
     path:     /list/new/{id}
     defaults: { _controller: "AppBundle:Champ:new" }
     methods:  [GET, POST]
+    requirements:
+        id: \d+
 
 index_champ_edit:
     path:     /list/{id}/edit
