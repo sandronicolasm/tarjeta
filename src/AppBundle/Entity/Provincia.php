@@ -52,4 +52,3 @@ class Provincia
         return $this->nameProv;
     }
 }
-

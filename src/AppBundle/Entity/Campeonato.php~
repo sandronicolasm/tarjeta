@@ -2,84 +2,55 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Campeonato
- *
- * @ORM\Table(name="campeonato")
- * @ORM\Entity
  */
 class Campeonato
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_camp", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idCamp;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name_camp", type="string", length=255, nullable=false)
      */
     private $nameCamp;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fech_inic", type="date", nullable=true)
      */
     private $fechInic;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fech_fina", type="date", nullable=true)
      */
     private $fechFina;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="prec_insc", type="integer", nullable=true)
      */
     private $precInsc;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="desc_camp", type="string", length=255, nullable=true)
      */
     private $descCamp;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=true)
      */
     private $timestamp;
-    
+
     /**
      * @var string
-     *
-     * @ORM\Column(name="url_foto", type="string", length=255, nullable=false)
      */
     private $urlFoto;
 
     /**
      * @var \AppBundle\Entity\Complejo
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Complejo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_comp", referencedColumnName="id_comp")
-     * })
      */
     private $idComp;
-
 
 
     /**
@@ -102,7 +73,7 @@ class Campeonato
     public function setNameCamp($nameCamp)
     {
         $this->nameCamp = $nameCamp;
-    
+
         return $this;
     }
 
@@ -117,29 +88,6 @@ class Campeonato
     }
 
     /**
-     * Set urlFoto
-     *
-     * @param string $urlFoto
-     *
-     * @return Campeonato
-     */
-    public function setUrlFoto($urlFoto)
-    {
-        $this->urlFoto = $urlFoto;
-    
-        return $this;
-    }
-
-    /**
-     * Get urlFoto
-     *
-     * @return string
-     */
-    public function getUrlFoto()
-    {
-        return $this->urlFoto;
-    }
-    /**
      * Set fechInic
      *
      * @param \DateTime $fechInic
@@ -149,7 +97,7 @@ class Campeonato
     public function setFechInic($fechInic)
     {
         $this->fechInic = $fechInic;
-    
+
         return $this;
     }
 
@@ -173,7 +121,7 @@ class Campeonato
     public function setFechFina($fechFina)
     {
         $this->fechFina = $fechFina;
-    
+
         return $this;
     }
 
@@ -197,7 +145,7 @@ class Campeonato
     public function setPrecInsc($precInsc)
     {
         $this->precInsc = $precInsc;
-    
+
         return $this;
     }
 
@@ -221,7 +169,7 @@ class Campeonato
     public function setDescCamp($descCamp)
     {
         $this->descCamp = $descCamp;
-    
+
         return $this;
     }
 
@@ -245,7 +193,7 @@ class Campeonato
     public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
-    
+
         return $this;
     }
 
@@ -260,6 +208,30 @@ class Campeonato
     }
 
     /**
+     * Set urlFoto
+     *
+     * @param string $urlFoto
+     *
+     * @return Campeonato
+     */
+    public function setUrlFoto($urlFoto)
+    {
+        $this->urlFoto = $urlFoto;
+
+        return $this;
+    }
+
+    /**
+     * Get urlFoto
+     *
+     * @return string
+     */
+    public function getUrlFoto()
+    {
+        return $this->urlFoto;
+    }
+
+    /**
      * Set idComp
      *
      * @param \AppBundle\Entity\Complejo $idComp
@@ -269,7 +241,7 @@ class Campeonato
     public function setIdComp(\AppBundle\Entity\Complejo $idComp = null)
     {
         $this->idComp = $idComp;
-    
+
         return $this;
     }
 
@@ -282,6 +254,8 @@ class Campeonato
     {
         return $this->idComp;
     }
-    
-    
+
+
+
 }
+

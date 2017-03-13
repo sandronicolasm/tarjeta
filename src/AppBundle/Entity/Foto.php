@@ -168,4 +168,3 @@ class Foto
         return $this->idComp;
     }
 }
-

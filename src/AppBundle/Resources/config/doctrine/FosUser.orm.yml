@@ -46,7 +46,7 @@ AppBundle\Entity\FosUser:
                 fixed: false
             column: dire_user
         phonUser:
-            type: integer
+            type: bigint
             nullable: true
             options:
                 unsigned: false

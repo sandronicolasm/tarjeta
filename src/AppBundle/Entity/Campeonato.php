@@ -238,7 +238,7 @@ class Campeonato
      *
      * @return Campeonato
      */
-    public function setIdComp(\AppBundle\Entity\Complejo $idComp = null)
+    public function setIdComp(\AppBundle\Entity\Complejo $idComp)
     {
         $this->idComp = $idComp;
 
@@ -256,5 +256,6 @@ class Campeonato
     }
 
 
-}
 
+
+}

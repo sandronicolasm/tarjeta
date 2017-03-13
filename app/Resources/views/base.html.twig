@@ -54,7 +54,7 @@
                                 <li><a href="{{ path('fos_user_profile_show') }}">{% trans %}profile{% endtrans %}</a></li>
                                 <li><a href="{{ path('fos_user_change_password') }}">{% trans %}change_pass{% endtrans %}</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{ path('app_default') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -80,9 +80,9 @@
                     <div class="input-group">
                         <input type="text" name="q" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
-            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-            </button>
-          </span>
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                            </button>
+                        </span>
                     </div>
                 </form>
                 <!-- /.search form -->
@@ -91,27 +91,14 @@
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-table"></i>
-                                <span>Complejos</span>
-                            <span class="pull-right-container">
-                              <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{ path('complex_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
-                            <li><a href="{{ path('admin') }}"><i class="fa fa-circle-o"></i> Canchas</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-table"></i>
                             <span>Campeonatos</span>
                             <span class="pull-right-container">
                               <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
-                        </ul>
+                        {#<ul class="treeview-menu">#}
+                            {#<li><a href="{{ path('index_champ', { 'id' : lista_compl.id_comp}) }}"><i class="fa fa-circle-o"></i> Listado</a></li>#}
+                        {#</ul>#}
                     </li>
                 </ul>
             </section>

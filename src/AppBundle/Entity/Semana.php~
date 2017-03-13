@@ -52,3 +52,4 @@ class Semana
         return $this->nomDia;
     }
 }
+

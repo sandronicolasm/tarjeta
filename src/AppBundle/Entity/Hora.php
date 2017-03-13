@@ -52,4 +52,3 @@ class Hora
         return $this->hora;
     }
 }
-

@@ -110,4 +110,3 @@ class Ciudad
         return $this->idProv;
     }
 }
-

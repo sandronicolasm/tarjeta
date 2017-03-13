@@ -2,62 +2,35 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Reserva
- *
- * @ORM\Table(name="reserva")
- * @ORM\Entity
  */
 class Reserva
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_rese", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idRese;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=true)
      */
     private $timestamp;
 
     /**
      * @var \AppBundle\Entity\Cancha
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cancha")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_canch", referencedColumnName="id_canch")
-     * })
      */
     private $idCanch;
 
     /**
      * @var \AppBundle\Entity\HoraFecha
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\HoraFecha")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_hofe", referencedColumnName="id_hofe")
-     * })
      */
     private $idHofe;
 
     /**
-     * @var \AppBundle\Entity\User
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
-     * })
+     * @var \AppBundle\Entity\FosUser
      */
-    private $idUser;
-
+    private $idUsua;
 
 
     /**
@@ -80,7 +53,7 @@ class Reserva
     public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
-    
+
         return $this;
     }
 
@@ -104,7 +77,7 @@ class Reserva
     public function setIdCanch(\AppBundle\Entity\Cancha $idCanch = null)
     {
         $this->idCanch = $idCanch;
-    
+
         return $this;
     }
 
@@ -128,7 +101,7 @@ class Reserva
     public function setIdHofe(\AppBundle\Entity\HoraFecha $idHofe = null)
     {
         $this->idHofe = $idHofe;
-    
+
         return $this;
     }
 
@@ -143,40 +116,27 @@ class Reserva
     }
 
     /**
-     * Set idUser
+     * Set idUsua
      *
-     * @param \AppBundle\Entity\User $idUser
+     * @param \AppBundle\Entity\FosUser $idUsua
      *
      * @return Reserva
      */
-    public function setIdUsua(\AppBundle\Entity\User $idUser = null)
+    public function setIdUsua(\AppBundle\Entity\FosUser $idUsua = null)
     {
-        $this->idUser = $idUser;
-    
+        $this->idUsua = $idUsua;
+
         return $this;
     }
 
     /**
-     * Get idUser
+     * Get idUsua
      *
-     * @return \AppBundle\Entity\User
+     * @return \AppBundle\Entity\FosUser
      */
-    public function getIdUser()
+    public function getIdUsua()
     {
-        return $this->idUser;
-    }
-
-    /**
-     * Set idUser
-     *
-     * @param \AppBundle\Entity\User $idUser
-     *
-     * @return Reserva
-     */
-    public function setIdUser(\AppBundle\Entity\User $idUser = null)
-    {
-        $this->idUser = $idUser;
-    
-        return $this;
+        return $this->idUsua;
     }
 }
+

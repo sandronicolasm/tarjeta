@@ -81,4 +81,3 @@ class HoraFecha
         return $this->idHora;
     }
 }
-

@@ -2,49 +2,57 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Campeonato;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Entity\Campeonato;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * Campeonato controller.
- */
-class CampeonatoController extends Controller
+class ChampController extends Controller
 {
-    /**
-     * Lists all campeonato entities.
-     */
-    public function indexAction()
+    public function indexAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        if ($id == null) {
+            echo "No existe Ningun Campeonato Cargado";
 
-        $campeonatos = $em->getRepository('AppBundle:Campeonato')->findAll();
+        } else {
+            $em = $this->getDoctrine()->getManager();
 
-        return $this->render('campeonato/index.html.twig', array(
-            'campeonatos' => $campeonatos,
-        ));
+            $db = $em->getConnection();
+            $query = "SELECT * FROM campeonato INNER JOIN complejo ON complejo.id_comp= campeonato.id_comp WHERE complejo.id_comp = " . $id;
+            $stmt = $db->prepare($query);
+            $params = array();
+            $stmt->execute($params);
+            $descrip = $stmt->fetchAll();
+
+        }
+        return $this->render(':Champ:index.html.twig', array(
+            'campeonatos' => $descrip,
+            'id_complejo' => $id
+                )
+        );
     }
 
     /**
      * Creates a new campeonato entity.
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
         $campeonato = new Campeonato();
-        $form = $this->createForm('AppBundle\Form\CampeonatoType', $campeonato);
+        $campeonato->setIdComp($id);
+
+        $form = $this->createForm('AppBundle\Form\ChampType', $campeonato);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+
             $em->persist($campeonato);
             $em->flush($campeonato);
 
-            return $this->redirectToRoute('champ_show', array('id' => $campeonato->getIdCamp()));
+            return $this->redirectToRoute('index_champ_show', array('id' => $campeonato->getIdCamp()));
         }
 
-        return $this->render('campeonato/new.html.twig', array(
+        return $this->render(':Champ:new.html.twig', array(
             'campeonato' => $campeonato,
             'form' => $form->createView(),
         ));
@@ -57,7 +65,7 @@ class CampeonatoController extends Controller
     {
         $deleteForm = $this->createDeleteForm($campeonato);
 
-        return $this->render('campeonato/show.html.twig', array(
+        return $this->render(':Champ:show.html.twig', array(
             'campeonato' => $campeonato,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -75,7 +83,7 @@ class CampeonatoController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('champ_edit', array('id' => $campeonato->getIdCamp()));
+            return $this->redirectToRoute('index_champ_edit', array('id' => $campeonato->getIdCamp()));
         }
 
         return $this->render('campeonato/edit.html.twig', array(
@@ -87,7 +95,6 @@ class CampeonatoController extends Controller
 
     /**
      * Deletes a campeonato entity.
-
      */
     public function deleteAction(Request $request, Campeonato $campeonato)
     {
@@ -115,7 +122,6 @@ class CampeonatoController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('champ_delete', array('id' => $campeonato->getIdCamp())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
