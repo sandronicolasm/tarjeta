@@ -1,5 +1,38 @@
 {% extends 'base.html.twig' %}
 
+{% block aside %}
+    <section class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i>
+                    <span>Complejos</span>
+                    <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ path('complex_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                    <li><a href="{{ path('courtes_index') }}"><i class="fa fa-circle-o"></i> Canchas</a></li>
+                    <li><a href="{{ path('type_courtes_index') }}"><i class="fa fa-circle-o"></i> Tipo de Canchas</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i>
+                    <span>Campeonatos</span>
+                    <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+{% endblock %}
+
 {% block page_content %}
 
 <div class="content-wrapper">
@@ -9,7 +42,7 @@
             <small>Panel de Control</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li class="active">Escritorio</li>
         </ol>
     </section>
@@ -21,6 +54,22 @@
             <li><a href="{{ path('index_champ', { 'id' : lista_compl.id_comp }) }}">Listado</a></li>
             <li><a href="{{ path('courtes_index') }}">Canchas</a></li>
             <li><a href="{{ path('type_courtes_index') }}">Tipo de Canchas</a></li>
+        </ul>
+    </section>
+    <section class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i>
+                    <span>Campeonatos</span>
+                    <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                {#<ul class="treeview-menu">#}
+                {#<li><a href="{{ path('index_champ', { 'id' : lista_compl.id_comp}) }}"><i class="fa fa-circle-o"></i> Listado</a></li>#}
+                {#</ul>#}
+            </li>
         </ul>
     </section>
 </div>

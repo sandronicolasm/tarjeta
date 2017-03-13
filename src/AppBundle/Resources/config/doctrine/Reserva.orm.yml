@@ -8,9 +8,9 @@ AppBundle\Entity\Reserva:
         id_usua:
             columns:
                 - id_usua
-        id_hofe:
+        id_hora:
             columns:
-                - id_hofe
+                - id_hora
     id:
         idRese:
             type: integer
@@ -25,6 +25,10 @@ AppBundle\Entity\Reserva:
         timestamp:
             type: datetime
             nullable: true
+
+        fecha_reserva:
+            type: date
+            nullable: false
     manyToOne:
         idCanch:
             targetEntity: Cancha
@@ -36,15 +40,15 @@ AppBundle\Entity\Reserva:
                 id_canch:
                     referencedColumnName: id_canch
             orphanRemoval: false
-        idHofe:
-            targetEntity: HoraFecha
+        idHora:
+            targetEntity: Hora
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id_hofe:
-                    referencedColumnName: id_hofe
+                id_hora:
+                    referencedColumnName: id_hora
             orphanRemoval: false
         idUsua:
             targetEntity: FosUser

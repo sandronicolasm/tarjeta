@@ -1,5 +1,53 @@
 {% extends 'base.html.twig' %}
 
+{% block aside %}
+    {{ parent() }}
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="{{ asset('img/user.jpg') }}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <h4>{{ app.user.username }}</h4>
+                </div>
+            </div>
+        </section>
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i>
+                        <span>Complejos</span>
+                        <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('complex_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                        <li><a href="{{ path('courtes_index') }}"><i class="fa fa-circle-o"></i> Canchas</a></li>
+                        <li><a href="{{ path('type_courtes_index') }}"><i class="fa fa-circle-o"></i> Tipo de Canchas</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i>
+                        <span>Campeonatos</span>
+                        <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+{% endblock %}
+
 {% block page_content %}
 <div class="content-wrapper">
     <section class="content-header">
@@ -8,7 +56,7 @@
             <small>Panel de Control</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li class="active">Escritorio</li>
         </ol>
     </section>
@@ -16,12 +64,14 @@
         <div class="hpanel hred">
             <div class="panel-heading">
                 <h3>Lista de Campeonato</h3>
-                <a href="{{ path('champ_index') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+                <a href="{{ path('champ_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
             </div>
 
             <div class="panel-body">
+                <input type="search" class="light-table-filter" data-table="order-table" placeholder="Buscar"/>
+
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table order-table table">
                         <thead>
                             <tr>
                                 <th class="hidden">Idcamp</th>
@@ -29,7 +79,7 @@
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Finalización</th>
                                 <th>Precio Inscripción</th>
-                                <th>Acciones</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
