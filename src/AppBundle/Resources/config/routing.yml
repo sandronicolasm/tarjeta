@@ -39,9 +39,9 @@ app_contacto:
     path:     /contacto
     defaults: { _controller: AppBundle:Index:contact }
 
-app_descrip:
-    path:     /complejos/decripcion/calendario
-    defaults: { _controller: AppBundle:Index:desc_cancha }
+app_reserva:
+    path:     /complejos/decripcion/{id}/reserva
+    defaults: { _controller: AppBundle:Index:reserva }
 
 app_lang:
     path:     /lang/{_locale}

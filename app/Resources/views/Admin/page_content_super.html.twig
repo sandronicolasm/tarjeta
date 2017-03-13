@@ -1,30 +1,21 @@
 {%extends "base.html.twig"%}
 
 {% block aside %}
+    {{ parent() }}
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('libs/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                    <img src="{{ asset('img/user.jpg') }}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <h4>{{ app.user.username }}</h4>
                 </div>
             </div>
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-        </button>
-  </span>
-                </div>
-            </form>
-            <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
+        </section>
+        <section class="sidebar">
             <ul class="sidebar-menu">
                 <li class="treeview">
                     <a href="#">
@@ -54,26 +45,30 @@
                 </li>
             </ul>
         </section>
-        <!-- /.sidebar -->
     </aside>
 {% endblock %}
 
 {% block page_content %}
     {{ parent()}}
-    <li class="treeview col-md-6">
-        <a href="#">
-            <i class="fa fa-table">super</i>
-            <span></span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
-            <li><a href="{{ path('champ_new') }}"><i class="fa fa-circle-o"></i> Agregar nuevo campeonato</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Tipo de Canchas</a></li>
-        </ul>
-    </li>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Escritorio
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Escritorio</li>
+            </ol>
+        </section>
+        <section>
+            <li class="treeview col-md-6">
+                <ul class="treeview-menu">
+                    <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Lista</a></li>
+                </ul>
+            </li>
+        </section>
+    </div>
 
 {%endblock%}
    

@@ -18,14 +18,19 @@ class Reserva
     private $timestamp;
 
     /**
+     * @var \DateTime
+     */
+    private $fecha_reserva;
+
+    /**
      * @var \AppBundle\Entity\Cancha
      */
     private $idCanch;
 
     /**
-     * @var \AppBundle\Entity\HoraFecha
+     * @var \AppBundle\Entity\Hora
      */
-    private $idHofe;
+    private $idHora;
 
     /**
      * @var \AppBundle\Entity\FosUser
@@ -92,27 +97,27 @@ class Reserva
     }
 
     /**
-     * Set idHofe
+     * Set idHora
      *
-     * @param \AppBundle\Entity\HoraFecha $idHofe
+     * @param \AppBundle\Entity\Hora $idHora
      *
      * @return Reserva
      */
-    public function setIdHofe(\AppBundle\Entity\HoraFecha $idHofe = null)
+    public function setIdHofe(\AppBundle\Entity\Hora $idHora = null)
     {
-        $this->idHofe = $idHofe;
+        $this->idHora = $idHora;
 
         return $this;
     }
 
     /**
-     * Get idHofe
+     * Get idHora
      *
-     * @return \AppBundle\Entity\HoraFecha
+     * @return \AppBundle\Entity\Hora
      */
-    public function getIdHofe()
+    public function getIdHora()
     {
-        return $this->idHofe;
+        return $this->idHora;
     }
 
     /**
@@ -138,4 +143,30 @@ class Reserva
     {
         return $this->idUsua;
     }
+
+    /**
+     * Set fecha_reserva
+     *
+     * @param \Date $fecha_reserva
+     *
+     * @return Reserva
+     */
+    public function setFechaReserva($fecha_reserva)
+    {
+        $this->fecha_reserva = $fecha_reserva;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \Date
+     */
+    public function getFechaReserva()
+    {
+        return $this->fecha_reserva;
+    }
+
+
 }
