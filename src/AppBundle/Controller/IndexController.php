@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Reserva;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -77,11 +78,25 @@ class IndexController extends Controller
     }
     
 
-    public function calendarAction()
+    public function reservaAction(Request $request, $id)
     {
-        return $this->render('index/calendario.html.twig', array(
+        $reserva = new Reserva();
+        $form = $this->createForm('AppBundle\Form\ReservaType', $reserva);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($reserva);
+            $em->flush($reserva);
+
+            return $this->redirectToRoute('champ_show', array('id' => $reserva->getIdCanch()));
+        }
+
+        return $this->render('index/reserva.html.twig', array(
+            'reserva' => $reserva,
+            'form' => $form->createView(),
         ));
+
     }
 
 

@@ -225,4 +225,10 @@ class Cancha
     {
         return $this->idTipo;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getNameCanch();
+        // TODO: Implement __toString() method.
+    }
 }
