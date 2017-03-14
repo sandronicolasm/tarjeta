@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +21,7 @@ class CampeonatoType extends AbstractType
                 ->add('fechFina',DateType::class, array('label' => 'Fecha Finalización', 'attr'=> array('class'=> 'col-sm-8 form-control'), 'label_attr' => array('class'=> 'col-sm-4 control-label')))
                 ->add('precInsc',TextType::class, array('label' => 'Precio Inscripción', 'attr'=> array('class'=> 'col-sm-8 form-control'), 'label_attr' => array('class'=> 'col-sm-4 control-label')))
                 ->add('descCamp',TextType::class, array('label' => 'Descripción', 'attr'=> array('class'=> 'col-sm-8 form-control'), 'label_attr' => array('class'=> 'col-sm-4 control-label')))
-                ->add('idComp',TextType::class, array('label' => 'Complejo Perteneciente', 'attr'=> array('class'=> 'col-sm-8 form-control'), 'label_attr' => array('class'=> 'col-sm-4 control-label')));
+                ->add('idComp',ChoiceType::class, array('label' => 'Complejo Perteneciente', 'attr'=> array('class'=> 'col-sm-8 form-control'), 'label_attr' => array('class'=> 'col-sm-4 control-label')));
     }
     
     /**

@@ -51,4 +51,10 @@ class Hora
     {
         return $this->hora;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getHora();
+        // TODO: Implement __toString() method.
+    }
 }

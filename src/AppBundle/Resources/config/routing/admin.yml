@@ -1,5 +1,5 @@
 index_champ:
-    path:     /list/index/{id}
+    path:     /list/{id}
     defaults: { _controller: AppBundle:Champ:index }
 
 index_champ_show:

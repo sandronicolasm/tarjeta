@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
+
 {% block page_content %}
     <div class="content-wrapper">
         <section class="content-header">
@@ -8,7 +12,7 @@
                 <small>Panel de Control</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li class="active">Campeonatos</li>
             </ol>
         </section>
@@ -19,7 +23,7 @@
                 </div>
                 <div class="panel-body">
                     {{ form_start(edit_form) }}
-                    <div class="form-group">
+                    <div class="form-group col-sm-12">
                         {{ form_widget(edit_form) }}
                     </div>
                     <div class="panel-footer text-center">
@@ -28,7 +32,7 @@
                         {{ form_start(delete_form) }}
                         <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
                         {{ form_end(delete_form) }}
-                        <a class="btn btn-default col-sm-2" href="{{ path('campeonato_index') }}" >Atrás</a>
+                        <a class="btn btn-default col-sm-2" href="{{ path('champ_index') }}" >Atrás</a>
                     </div>
                 </div>
             </div>

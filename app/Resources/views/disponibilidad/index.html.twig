@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Disponibilidads list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Iddisp</th>
+                <th>Iddia</th>
+                <th>Idapertura</th>
+                <th>Idcierre</th>
+                <th>Idcomp</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for disponibilidad in disponibilidads %}
+            <tr>
+                <td><a href="{{ path('disponibilidad_show', { 'id': disponibilidad.idDisp }) }}">{{ disponibilidad.idDisp }}</a></td>
+                <td>{{ disponibilidad.idDia }}</td>
+                <td>{{ disponibilidad.idApertura }}</td>
+                <td>{{ disponibilidad.idCierre }}</td>
+                <td>{{ disponibilidad.idComp }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('disponibilidad_show', { 'id': disponibilidad.idDisp }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('disponibilidad_edit', { 'id': disponibilidad.idDisp }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('disponibilidad_new') }}">Create a new disponibilidad</a>
+        </li>
+    </ul>
+{% endblock %}

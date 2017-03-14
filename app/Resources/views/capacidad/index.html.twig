@@ -1,39 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Capacidads list</h1>
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Idcapa</th>
-                <th>Capa</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for capacidad in capacidads %}
-            <tr>
-                <td><a href="{{ path('super_capacidad_show', { 'id': capacidad.idCapa }) }}">{{ capacidad.idCapa }}</a></td>
-                <td>{{ capacidad.capa }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('super_capacidad_show', { 'id': capacidad.idCapa }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('super_capacidad_edit', { 'id': capacidad.idCapa }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('super_capacidad_new') }}">Create a new capacidad</a>
-        </li>
-    </ul>
+{% block page_content %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Cancha
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Capacidad</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>Capacidad</h3>
+                    <a href="{{ path('capacity_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+                </div>
+                <div class="panel-body">
+                    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Buscar"/>
+                    <div class="table-responsive">
+                        <table class="table order-table table">
+                            <thead>
+                                <tr>
+                                    <th class="hidden">Idcapa</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for capacidad in capacidads %}
+                                <tr>
+                                    <td class="hidden"><a href="{{ path('capacity_show', { 'id': capacidad.idCapa }) }}">{{ capacidad.idCapa }}</a></td>
+                                    <td>{{ capacidad.capa }}</td>
+                                    <td class="tools">
+                                        <a href="{{ path('capacity_edit', { 'id': capacidad.idCapa }) }}"><i class="fa fa-edit fa-2x"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock %}

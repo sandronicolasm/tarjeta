@@ -1,21 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Capacidad edit</h1>
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('super_capacidad_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% block page_content %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Campeonatos
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Campeonatos</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-body">
+                    {{ form_start(edit_form) }}
+                        <div class="form-group col-sm-12">
+                            {{ form_widget(edit_form) }}
+                        </div>
+                        <div class="panel-footer text-center">
+                            <input type="submit" value="Guardar" class="btn btn-success col-sm-2"/>
+                            {{ form_end(edit_form) }}
+                            {{ form_start(delete_form) }}
+                            <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
+                            {{ form_end(delete_form) }}
+                            <a class="btn btn-default col-sm-2" href="{{ path('champ_index') }}" >Atrás</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock %}

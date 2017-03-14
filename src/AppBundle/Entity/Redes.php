@@ -97,4 +97,10 @@ class Redes
     {
         return $this->idComp;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getNameRede();
+        // TODO: Implement __toString() method.
+    }
 }

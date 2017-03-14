@@ -1,6 +1,6 @@
 app_admin:
     resource: "@AppBundle/Resources/config/routing/admin.yml"
-    prefix:   /admin-champ
+    prefix:   /admin-complex
 
 app_champ:
     resource: "@AppBundle/Resources/config/routing/championship.yml"
@@ -14,9 +14,21 @@ app_type_courtes:
     resource: "@AppBundle/Resources/config/routing/type_courtes.yml"
     prefix:   /type-courtes
 
+app_capacity:
+    resource: "@AppBundle/Resources/config/routing/capacity.yml"
+    prefix:   /capacity
+
+app_services:
+    resource: "@AppBundle/Resources/config/routing/services.yml"
+    prefix:   /services
+
 app_courtes:
     resource: "@AppBundle/Resources/config/routing/courtes.yml"
     prefix:   /courtes
+
+app_fosuser:
+    resource: "@AppBundle/Resources/config/routing/fosuser.yml"
+    prefix:   /users
 
 app_default:
     path:     /index
@@ -40,8 +52,12 @@ app_contacto:
     defaults: { _controller: AppBundle:Index:contact }
 
 app_reserva:
-    path:     /complejos/decripcion/{id}/reserva
+    path:     /complejos/descripcion/reserva/{id}
     defaults: { _controller: AppBundle:Index:reserva }
+
+app_fecha:
+    path:     /complejos/descripcion/verification
+    defaults: { _controller: AppBundle:Index:verification }
 
 app_lang:
     path:     /lang/{_locale}

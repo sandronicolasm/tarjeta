@@ -51,4 +51,10 @@ class Capacidad
     {
         return $this->capa;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getCapa();
+        // TODO: Implement __toString() method.
+    }
 }

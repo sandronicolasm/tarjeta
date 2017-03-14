@@ -48,7 +48,7 @@ class ComplejoController extends Controller
             $em->persist($complejo);
             $em->flush($complejo);
 
-            return $this->redirectToRoute('complejo_show', array('id' => $complejo->getIdComp()));
+            return $this->redirectToRoute('complex_show', array('id' => $complejo->getIdComp()));
         }
 
         return $this->render('complejo/new.html.twig', array(
@@ -88,7 +88,7 @@ class ComplejoController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('complejo_edit', array('id' => $complejo->getIdComp()));
+            return $this->redirectToRoute('complex_edit', array('id' => $complejo->getIdComp()));
         }
 
         return $this->render('complejo/edit.html.twig', array(
@@ -115,7 +115,7 @@ class ComplejoController extends Controller
             $em->flush($complejo);
         }
 
-        return $this->redirectToRoute('complejo_index');
+        return $this->redirectToRoute('complex_index');
     }
 
     /**
@@ -128,7 +128,7 @@ class ComplejoController extends Controller
     private function createDeleteForm(Complejo $complejo)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('complejo_delete', array('id' => $complejo->getIdComp())))
+            ->setAction($this->generateUrl('complex_delete', array('id' => $complejo->getIdComp())))
             ->setMethod('DELETE')
             ->getForm()
         ;

@@ -3,10 +3,11 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ReservaType extends AbstractType
 {
@@ -15,8 +16,9 @@ class ReservaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('idCanch',TextType::class, array('label' => 'Nombre Cancha', 'attr'=> array('class'=> 'col-sm-8 form-control'), 'label_attr' => array('class'=> 'col-sm-4 control-label')))
-                ->add('fechaReserva',DateType::class, array('label' => 'Fecha a Reservar', 'widget' => 'choice', 'attr'=> array('class'=> 'col-sm-8 form-control'), 'label_attr' => array('class'=> 'col-sm-4 control-label')));
+        $builder->add('idCanch')
+                ->add('fechaReserva', DateType::class, array('label'=> 'Fecha de Reserva'))
+                ->add('idHora', ChoiceType::class);
     }
 
     /**

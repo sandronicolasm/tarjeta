@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
+
 {% block page_content %}
     <div class="content-wrapper">
         <section class="content-header">
@@ -8,7 +12,7 @@
                 <small>Panel de Control</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li class="active">Campeonatos</li>
             </ol>
         </section>

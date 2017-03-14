@@ -1,5 +1,10 @@
 {% extends ':index:index.html.twig' %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('libs/bootstrap/formulario.css') }}"/>
+{% endblock %}
+
 {% block header %}{% endblock %}
 
 {% block container %}
@@ -18,18 +23,13 @@
 				</div>
 			</div>
 
-
-
-				<div>
-					<button href="{{ path('send_email', { {{ user.email }} }) }}" class="btn btn-success">Reservar Turno</button>
-				</div>
+			<div id="form" class="form-wrapper">
+				{{ form_start(form) }}
+				{{ form_widget(form) }}
+				{{ form_end(form) }}
+				<input type="submit" value="Buscar Horarios Disponibles" class="btn btn-info col-sm-12"/>
 			</div>
+
 		</div>
 	</div>
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-
-	<script src="{{ asset('js/jquery.colorbox.js') }}"></script>
 {% endblock %}
