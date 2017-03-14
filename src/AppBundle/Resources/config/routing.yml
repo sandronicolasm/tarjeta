@@ -44,8 +44,8 @@ app_reserva:
     defaults: { _controller: AppBundle:Index:reserva }
 
 app_fecha:
-    path:     /complejos/descripcion/fecha/{id}
-    defaults: { _controller: AppBundle:Index:fecha }
+    path:     /complejos/descripcion/verification
+    defaults: { _controller: AppBundle:Index:verification }
 
 app_lang:
     path:     /lang/{_locale}

@@ -78,23 +78,15 @@ class IndexController extends Controller
         ));
     }
 
-    public function fechaAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $cancha_repo = $em->getRepository('AppBundle:Cancha');
-        $canchas_query = $cancha_repo->findBy(array('idComp'=> $id));
-
-
-        return $this->render(':index:reserva.html.twig', array(
-            'id' => $id
-        ));
-    }
-    
-
     public function reservaAction(Request $request, $id)
     {
-
-
+//        $h = $request->get('id');
+//        $em = $this->getDoctrine()->getManager();
+//        $repo_canchas= $em->getRepository('AppBundle:Cancha')->findOneByIdComp(1);
+//
+//        var_dump($repo_canchas);
+//
+//        exit();
 
         $reserva = new Reserva();
         $form = $this->createForm('AppBundle\Form\ReservaType', $reserva);
@@ -105,34 +97,37 @@ class IndexController extends Controller
             $em->persist($reserva);
             $em->flush($reserva);
 
-            echo 'form ok';
-
             return $this->redirectToRoute('champ_show', array('id' => $reserva->getIdCanch()));
 
         }
-        elseif ($form->isSubmitted() && !$form->isValid()){
-
-            $em = $this->getDoctrine()->getManager();
-            $reserva_repo = $em->getRepository('AppBundle:Reserva');
-            $reserva_query = $reserva_repo->findBy(array('fecha_reserva'=> $reserva->getFechaReserva()));
-
-            echo 'fecha ok';
-
-            return $this->render('index/reserva-2.html.twig', array(
-
-                'reserva' => $reserva,
-                'form' => $form->createView(),
-            ));
-        }
+//        elseif ($form->isSubmitted() && !$form->isValid()){
+//
+//            $em = $this->getDoctrine()->getManager();
+//            $reserva_repo = $em->getRepository('AppBundle:Reserva');
+//            $reserva_query = $reserva_repo->findBy(array('fecha_reserva'=> $reserva->getFechaReserva()));
+//
+//            echo 'fecha ok';
+//
+//            return $this->render('index/reserva-2.html.twig', array(
+//
+//                'reserva' => $reserva,
+//                'form' => $form->createView(),
+//            ));
+//        }
 
         return $this->render('index/reserva.html.twig', array(
-            'canchas'=> $canchas_query,
             'reserva' => $reserva,
             'form' => $form->createView(),
         ));
 
     }
 
+    public function verificationAction()
+    {
+        return $this->render('index/reserva-2.html.twig', array(
+
+        ));
+    }
 
     /**
      * @Route("{_locale}/index/descrip_cancha/calendar/email", name= "send_email")
