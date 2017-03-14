@@ -51,4 +51,10 @@ class Tcancha
     {
         return $this->nameTipo;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getNameTipo();
+        // TODO: Implement __toString() method.
+    }
 }

@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
+
 {% block page_content %}
     {% form_theme form '@App/Form/fields.html.twig' %}
     <div class="content-wrapper">
@@ -9,7 +13,7 @@
                 <small>Panel de Control</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li class="active">Escritorio</li>
             </ol>
         </section>
@@ -52,7 +56,7 @@
                     </div>
                     <div>
                         <div class="panel-footer text-center">
-                            <a class="btn btn-default" href="{{ path('cancha_index') }}">Atrás</a>
+                            <a class="btn btn-default" href="{{ path('courtes_index') }}">Atrás</a>
                             <input type="submit" value="Crear" class="btn btn-success"/>
                         </div>
                     </div>
