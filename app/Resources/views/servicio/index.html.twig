@@ -1,41 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Servicios list</h1>
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Idserv</th>
-                <th>Nameserv</th>
-                <th>Precserv</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for servicio in servicios %}
-            <tr>
-                <td><a href="{{ path('super_servicio_show', { 'id': servicio.idServ }) }}">{{ servicio.idServ }}</a></td>
-                <td>{{ servicio.nameServ }}</td>
-                <td>{{ servicio.precServ }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('super_servicio_show', { 'id': servicio.idServ }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('super_servicio_edit', { 'id': servicio.idServ }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('super_servicio_new') }}">Create a new servicio</a>
-        </li>
-    </ul>
+{% block page_content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Servicios
+            <small>Panel de Control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li class="active">Escritorio</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="hpanel hred">
+            <div class="panel-heading">
+                <a href="{{ path('services_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+            </div>
+            <div class="panel-body">
+                <input type="search" class="light-table-filter" data-table="order-table" placeholder="Buscar"/>
+                <div class="table-responsive">
+                    <table class="table order-table table">
+                        <thead>
+                            <tr>
+                                <th class="hidden">Idserv</th>
+                                <th>Nombre Servicio</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for servicio in servicios %}
+                            <tr>
+                                <td class="hidden"><a href="{{ path('services_show', { 'id': servicio.idServ }) }}">{{ servicio.idServ }}</a></td>
+                                <td>{{ servicio.nameServ }}</td>
+                                <td>{{ servicio.precServ }}</td>
+                                <td class="tools">
+                                    <a href="{{ path('services_edit', { 'id': servicio.idServ }) }}"><i class="fa fa-edit fa-2x"></i> </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 {% endblock %}

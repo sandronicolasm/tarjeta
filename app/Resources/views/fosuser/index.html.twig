@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
+
+{% block page_content %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Usuarios
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Usuarios</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <a href="{{ path('fosuser_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+                </div>
+
+                <div class="panel-body">
+                    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Buscar"/>
+                    <div class="table-responsive">
+                        <table class="table order-table table">
+                            <thead>
+                                <tr>
+                                    <th class="hidden">Id</th>
+                                    <th>Nombre Usuario</th>
+                                    <th>DNI</th>
+                                    <th>Fecha Nacimiento</th>
+                                    <th>Dirección</th>
+                                    <th>Teléfono</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for fosUser in fosUsers %}
+                                <tr>
+                                    <td class="hidden"><a href="{{ path('fosuser_show', { 'id': fosUser.id }) }}">{{ fosUser.id }}</a></td>
+                                    <td>{{ fosUser.nameUser }}</td>
+                                    <td>{{ fosUser.dniUser }}</td>
+                                    <td>{% if fosUser.fnacUser %}{{ fosUser.fnacUser|date('Y-m-d') }}{% endif %}</td>
+                                    <td>{{ fosUser.direUser }}</td>
+                                    <td>{{ fosUser.phonUser }}</td>
+                                    <td class="tools">
+                                        <a href="{{ path('fosuser_edit', { 'id': fosUser.id }) }}"><i class="fa fa-edit fa-2x"></i> </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

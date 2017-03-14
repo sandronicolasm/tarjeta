@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
+
+{% block page_content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Usuarios
+            <small>Panel de Control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li class="active">Usuarios</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="hpanel hred">
+            <div class="panel-heading">
+                <h3>{{ fosUser.username }}</h3>
+            </div>
+            <div class="panel-body">
+                {{ form_start(edit_form) }}
+                <div class="form-group col-sm-12">
+                    {{ form_widget(edit_form) }}
+                    <input type="submit" value="Edit" />
+                {{ form_end(edit_form) }}
+                </div>
+                <div class="panel-footer text-center">
+                    <input type="submit" value="Guardar" class="btn btn-success col-sm-2"/>
+                    {{ form_end(edit_form) }}
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
+                    {{ form_end(delete_form) }}
+                    <a class="btn btn-default col-sm-2" href="{{ path('fosuser_index') }}" >Atrás</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

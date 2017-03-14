@@ -126,4 +126,10 @@ class Servicio
     {
         return $this->idComp;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getNameServ();
+        // TODO: Implement __toString() method.
+    }
 }

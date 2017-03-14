@@ -1,105 +1,60 @@
 {% extends 'base.html.twig' %}
 
 {% block aside %}
-    {{ parent() }}
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <!-- Sidebar user panel -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="{{ asset('img/user.jpg') }}" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <h4>{{ app.user.username }}</h4>
-                </div>
-            </div>
-        </section>
-        <section class="sidebar">
-            <ul class="sidebar-menu">
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-table"></i>
-                        <span>Complejos</span>
-                        <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="{{ path('complex_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
-                        <li><a href="{{ path('courtes_index') }}"><i class="fa fa-circle-o"></i> Canchas</a></li>
-                        <li><a href="{{ path('type_courtes_index') }}"><i class="fa fa-circle-o"></i> Tipo de Canchas</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-table"></i>
-                        <span>Campeonatos</span>
-                        <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-    </aside>
-{% endblock %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
 
 {% block page_content %}
-<div class="content-wrapper">
-    <section class="content-header">
-        <h1>
-            Campeonato
-            <small>Panel de Control</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li class="active">Escritorio</li>
-        </ol>
-    </section>
-    <section class="content">
-        <div class="hpanel hred">
-            <div class="panel-heading">
-                <h3>Lista de Campeonato</h3>
-                <a href="{{ path('champ_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
-            </div>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Campeonato
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Escritorio</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>Campeonatos</h3>
+                    <a href="{{ path('champ_new') }}" class="pull-right"><i class="fa fa-plus-circle fa-3x"></i></a>
+                </div>
 
-            <div class="panel-body">
-                <input type="search" class="light-table-filter" data-table="order-table" placeholder="Buscar"/>
-
-                <div class="table-responsive">
-                    <table class="table order-table table">
-                        <thead>
-                            <tr>
-                                <th class="hidden">Idcamp</th>
-                                <th>Nombre</th>
-                                <th>Fecha Inicio</th>
-                                <th>Fecha Finalización</th>
-                                <th>Precio Inscripción</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for campeonato in campeonatos %}
-                            <tr>
-                                <td class="hidden"><a href="{{ path('champ_show', { 'id': campeonato.idCamp }) }}">{{ campeonato.idCamp }}</a></td>
-                                <td>{{ campeonato.nameCamp }}</td>
-                                <td>{% if campeonato.fechInic %}{{ campeonato.fechInic|date('Y-m-d') }}{% endif %}</td>
-                                <td>{% if campeonato.fechFina %}{{ campeonato.fechFina|date('Y-m-d') }}{% endif %}</td>
-                                <td>{{ campeonato.precInsc }}</td>
-                                <td class="tools">
-                                    <a href="{{ path('champ_show', { 'id': campeonato.idCamp }) }}"><i class="fa fa-edit fa-2x"></i> </a>
-                                </td>
-
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                <div class="panel-body">
+                    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Buscar"/>
+                    <div class="table-responsive">
+                        <table class="table order-table table">
+                            <thead>
+                                <tr>
+                                    <th class="hidden">Idcamp</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha Inicio</th>
+                                    <th>Fecha Finalización</th>
+                                    <th>Precio Inscripción</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for campeonato in campeonatos %}
+                                <tr>
+                                    <td class="hidden"><a href="{{ path('champ_show', { 'id': campeonato.idCamp }) }}">{{ campeonato.idCamp }}</a></td>
+                                    <td>{{ campeonato.nameCamp }}</td>
+                                    <td>{% if campeonato.fechInic %}{{ campeonato.fechInic|date('Y-m-d') }}{% endif %}</td>
+                                    <td>{% if campeonato.fechFina %}{{ campeonato.fechFina|date('Y-m-d') }}{% endif %}</td>
+                                    <td>{{ campeonato.precInsc }}</td>
+                                    <td class="tools">
+                                        <a href="{{ path('champ_edit', { 'id': campeonato.idCamp }) }}"><i class="fa fa-edit fa-2x"></i> </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 {% endblock %}

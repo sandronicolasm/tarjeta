@@ -1,16 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Servicio creation</h1>
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('super_servicio_index') }}">Back to the list</a>
-        </li>
-    </ul>
+{% block page_content %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Servicios
+                <small>Panel de Control</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Servicio</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="hpanel hred">
+                <div class="panel-heading">
+                    <h3>Nuevo Servicio</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    <div class="form-group col-sm-12">
+                        {{ form_widget(form) }}
+                        <div class="text-center">
+                            <a class="btn btn-default" href="{{ path('services_index') }}">Atrás</a>
+                            <input type="submit" value="Crear" class="btn btn-success"/>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock %}

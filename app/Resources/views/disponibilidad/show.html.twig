@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Disponibilidad</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Iddisp</th>
+                <td>{{ disponibilidad.idDisp }}</td>
+            </tr>
+            <tr>
+                <th>Iddia</th>
+                <td>{{ disponibilidad.idDia }}</td>
+            </tr>
+            <tr>
+                <th>Idapertura</th>
+                <td>{{ disponibilidad.idApertura }}</td>
+            </tr>
+            <tr>
+                <th>Idcierre</th>
+                <td>{{ disponibilidad.idCierre }}</td>
+            </tr>
+            <tr>
+                <th>Idcomp</th>
+                <td>{{ disponibilidad.idComp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('disponibilidad_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('disponibilidad_edit', { 'id': disponibilidad.idDisp }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

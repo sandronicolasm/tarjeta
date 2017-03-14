@@ -48,7 +48,7 @@ class ServicioController extends Controller
             $em->persist($servicio);
             $em->flush($servicio);
 
-            return $this->redirectToRoute('super_servicio_show', array('id' => $servicio->getId()));
+            return $this->redirectToRoute('services_show', array('id' => $servicio->getIdServ()));
         }
 
         return $this->render('servicio/new.html.twig', array(
@@ -88,7 +88,7 @@ class ServicioController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('super_servicio_edit', array('id' => $servicio->getId()));
+            return $this->redirectToRoute('services_edit', array('id' => $servicio->getIdServ()));
         }
 
         return $this->render('servicio/edit.html.twig', array(
@@ -115,7 +115,7 @@ class ServicioController extends Controller
             $em->flush($servicio);
         }
 
-        return $this->redirectToRoute('super_servicio_index');
+        return $this->redirectToRoute('services_index');
     }
 
     /**
@@ -128,7 +128,7 @@ class ServicioController extends Controller
     private function createDeleteForm(Servicio $servicio)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('super_servicio_delete', array('id' => $servicio->getId())))
+            ->setAction($this->generateUrl('services_delete', array('id' => $servicio->getIdServ())))
             ->setMethod('DELETE')
             ->getForm()
         ;

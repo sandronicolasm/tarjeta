@@ -48,7 +48,7 @@ class CanchaController extends Controller
             $em->persist($cancha);
             $em->flush($cancha);
 
-            return $this->redirectToRoute('cancha_show', array('id' => $cancha->getIdCanch()));
+            return $this->redirectToRoute('courtes_show', array('id' => $cancha->getIdCanch()));
         }
 
         return $this->render('cancha/new.html.twig', array(
@@ -88,7 +88,7 @@ class CanchaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('cancha_edit', array('id' => $cancha->getIdCanch()));
+            return $this->redirectToRoute('courtes_edit', array('id' => $cancha->getIdCanch()));
         }
 
         return $this->render('cancha/edit.html.twig', array(
@@ -115,7 +115,7 @@ class CanchaController extends Controller
             $em->flush($cancha);
         }
 
-        return $this->redirectToRoute('cancha_index');
+        return $this->redirectToRoute('courtes_index');
     }
 
     /**
@@ -128,7 +128,7 @@ class CanchaController extends Controller
     private function createDeleteForm(Cancha $cancha)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('cancha_delete', array('id' => $cancha->getIdCanch())))
+            ->setAction($this->generateUrl('courtes_delete', array('id' => $cancha->getIdCanch())))
             ->setMethod('DELETE')
             ->getForm()
         ;
