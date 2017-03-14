@@ -17,19 +17,27 @@
 					</ol>
 				</div>
 			</div>
-
-
-
-				<div>
-					<button href="{{ path('send_email', { {{ user.email }} }) }}" class="btn btn-success">Reservar Turno</button>
+			<section class="content">
+				<div class="hpanel hred">
+					<div class="panel-heading">
+						<h3>Reserva tu Cancha</h3>
+					</div>
+					<div class="panel-body">
+                        {{ form_start(form) }}
+						<div class="form-group col-sm-12">
+							{{ form_label(form.idCanch) }}
+                            {{ form_widget(form.idCanch) }}
+                            {{ form_label(form.fechaReserva) }}
+                            {{ form_widget(form.fechaReserva) }}
+							<div class="text-center">
+								<a class="btn btn-default" href="{{ path('app_default') }}">Atrás</a>
+								<input type="submit" value="Reservar" class="btn btn-success"/>
+							</div>
+						</div>
+                        {{ form_end(form) }}
+					</div>
 				</div>
-			</div>
+			</section>
 		</div>
 	</div>
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-
-	<script src="{{ asset('js/jquery.colorbox.js') }}"></script>
 {% endblock %}
