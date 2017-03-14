@@ -52,8 +52,12 @@ app_contacto:
     defaults: { _controller: AppBundle:Index:contact }
 
 app_reserva:
-    path:     /complejos/decripcion/{id}/reserva
+    path:     /complejos/descripcion/reserva/{id}
     defaults: { _controller: AppBundle:Index:reserva }
+
+app_fecha:
+    path:     /complejos/descripcion/verification
+    defaults: { _controller: AppBundle:Index:verification }
 
 app_lang:
     path:     /lang/{_locale}

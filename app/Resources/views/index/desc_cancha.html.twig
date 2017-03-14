@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="pull-right">
-                <p><a class='iframe btn btn-primary' href="{{ path('app_reserva') }}"'>Hacer Reserva</a></p>
+                <p><a class='btn btn-primary' href="{{ path('app_reserva', {'id': descri.id_comp}) }}"'>Hacer Reserva</a></p>
             </div>
 
 
@@ -56,10 +56,4 @@
         <!-- /.row -->
     </div>
 
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-
-    <script src="{{ asset('js/jquery.colorbox.js') }}"></script>
 {% endblock %}
