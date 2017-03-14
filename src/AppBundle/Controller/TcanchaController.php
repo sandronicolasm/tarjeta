@@ -48,7 +48,7 @@ class TcanchaController extends Controller
             $em->persist($tcancha);
             $em->flush($tcancha);
 
-            return $this->redirectToRoute('admin_tcancha_show', array('id' => $tcancha->getIdTipo()));
+            return $this->redirectToRoute('type_courtes_show', array('id' => $tcancha->getIdTipo()));
         }
 
         return $this->render('tcancha/new.html.twig', array(
@@ -88,7 +88,7 @@ class TcanchaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_tcancha_edit', array('id' => $tcancha->getIdTipo()));
+            return $this->redirectToRoute('type_courtes_edit', array('id' => $tcancha->getIdTipo()));
         }
 
         return $this->render('tcancha/edit.html.twig', array(
@@ -115,7 +115,7 @@ class TcanchaController extends Controller
             $em->flush($tcancha);
         }
 
-        return $this->redirectToRoute('admin_tcancha_index');
+        return $this->redirectToRoute('type_courtes_index');
     }
 
     /**
@@ -128,7 +128,7 @@ class TcanchaController extends Controller
     private function createDeleteForm(Tcancha $tcancha)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('admin_tcancha_delete', array('id' => $tcancha->getIdTipo())))
+            ->setAction($this->generateUrl('type_courtes_delete', array('id' => $tcancha->getIdTipo())))
             ->setMethod('DELETE')
             ->getForm()
         ;

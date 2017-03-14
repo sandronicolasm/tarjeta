@@ -48,7 +48,7 @@ class CapacidadController extends Controller
             $em->persist($capacidad);
             $em->flush($capacidad);
 
-            return $this->redirectToRoute('super_capacidad_show', array('id' => $capacidad->getId()));
+            return $this->redirectToRoute('capacity_show', array('id' => $capacidad->getIdCapa()));
         }
 
         return $this->render('capacidad/new.html.twig', array(
@@ -88,7 +88,7 @@ class CapacidadController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('super_capacidad_edit', array('id' => $capacidad->getId()));
+            return $this->redirectToRoute('capacity_edit', array('id' => $capacidad->getIdCapa()));
         }
 
         return $this->render('capacidad/edit.html.twig', array(
@@ -115,7 +115,7 @@ class CapacidadController extends Controller
             $em->flush($capacidad);
         }
 
-        return $this->redirectToRoute('super_capacidad_index');
+        return $this->redirectToRoute('capacity_edit');
     }
 
     /**
@@ -128,7 +128,7 @@ class CapacidadController extends Controller
     private function createDeleteForm(Capacidad $capacidad)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('super_capacidad_delete', array('id' => $capacidad->getId())))
+            ->setAction($this->generateUrl('capacity_delete', array('id' => $capacidad->getIdCapa())))
             ->setMethod('DELETE')
             ->getForm()
         ;

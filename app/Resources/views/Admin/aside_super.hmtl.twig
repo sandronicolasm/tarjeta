@@ -24,8 +24,6 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ path('complex_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
-                        <li><a href="{{ path('courtes_index') }}"><i class="fa fa-circle-o"></i> Canchas</a></li>
-                        <li><a href="{{ path('type_courtes_index') }}"><i class="fa fa-circle-o"></i> Tipo de Canchas</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -38,6 +36,44 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ path('champ_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i>
+                        <span>Canchas</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('courtes_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                        <li><a href="{{ path('type_courtes_index') }}"><i class="fa fa-circle-o"></i> Tipo de Canchas</a></li>
+                        <li><a href="{{ path('capacity_index') }}"><i class="fa fa-circle-o"></i> Capacidad</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i>
+                        <span>Servicios</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('services_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i>
+                        <span>Usuarios</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('fosuser_index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
                     </ul>
                 </li>
             </ul>

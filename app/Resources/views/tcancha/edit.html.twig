@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block aside %}
+    {% include ':Admin:aside_super.hmtl.twig' %}
+{%endblock%}
+
 {% block page_content %}
     {% form_theme edit_form '@App/Form/fields.html.twig' %}
     <div class="content-wrapper">
@@ -9,7 +13,7 @@
                 <small>Panel de Control</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li class="active">Escritorio</li>
             </ol>
         </section>
@@ -31,7 +35,7 @@
                             {{ form_start(delete_form) }}
                                 <input type="submit" value="Eliminar" class="btn btn-danger col-sm-2">
                             {{ form_end(delete_form) }}
-                            <a class="btn btn-default col-sm-2" href="{{ path('admin_tcancha_index') }}" >Atrás</a>
+                            <a class="btn btn-default col-sm-2" href="{{ path('type_courtes_index') }}" >Atrás</a>
                         </div>
                     </div>
                 </div>

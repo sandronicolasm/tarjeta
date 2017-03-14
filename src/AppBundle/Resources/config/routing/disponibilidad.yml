@@ -1,0 +1,24 @@
+disponibilidad_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Disponibilidad:index" }
+    methods:  GET
+
+disponibilidad_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Disponibilidad:show" }
+    methods:  GET
+
+disponibilidad_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Disponibilidad:new" }
+    methods:  [GET, POST]
+
+disponibilidad_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Disponibilidad:edit" }
+    methods:  [GET, POST]
+
+disponibilidad_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Disponibilidad:delete" }
+    methods:  DELETE
